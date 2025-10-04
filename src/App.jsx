@@ -1545,13 +1545,13 @@ export default function CoralReefJomtienPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm overflow-y-auto p-4 md:p-6"
           onClick={() => setShowFloorPlan(false)}
         >
           <motion.div
             initial={{ scale: 0.9, y: 20 }}
             animate={{ scale: 1, y: 0 }}
-            className="relative max-w-5xl w-full bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl border border-white/20 shadow-2xl overflow-hidden"
+            className="relative max-w-5xl w-full bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl border border-white/20 shadow-2xl my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -1564,11 +1564,11 @@ export default function CoralReefJomtienPage() {
               </svg>
             </button>
 
-            <div className="grid md:grid-cols-2 gap-6 p-8">
+            <div className="grid md:grid-cols-2 gap-6 p-6 md:p-8">
               {/* Left: Floor Plan Image */}
               <div className="flex flex-col">
                 <h3 className="text-2xl font-bold mb-4 text-white">{selectedUnit.type} Floor Plan</h3>
-                <div className="relative rounded-xl overflow-hidden border border-white/20 bg-white min-h-[400px]">
+                <div className="relative rounded-xl overflow-hidden border border-white/20 bg-white min-h-[300px] md:min-h-[400px]">
                   {!floorPlanError ? (
                     <img
                       src={floorPlanMapping[selectedUnit.type] || `/floorplans/type-${selectedUnit.type.replace('Type ', '').toLowerCase()}.jpg`}
