@@ -200,7 +200,7 @@ const Stat = ({ k, v }) => (
 );
 
 const CTA = () => (
-  <div className="fixed bottom-4 left-4 z-50 flex flex-col gap-3">
+  <div className="hidden md:flex fixed bottom-4 left-4 z-50 flex-col gap-3">
     <a
       href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'm interested in Copacabana Coral Reef. Can you send me more information?")}`}
       target="_blank"
@@ -814,18 +814,53 @@ export default function CoralReefJomtienPage() {
                         <span className="text-white/60">~${unit.priceUSD}K</span>
                       </div>
                     </div>
-                    <a
-                      href={getWhatsAppLink(unit)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-center py-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20BA5A] hover:to-[#0F7A6A] transition-all duration-300 text-sm font-semibold text-white shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <MessageCircle className="w-4 h-4" />
-                        <span>Get Floor Plan via WhatsApp</span>
-                      </div>
-                      <div className="text-xs font-normal text-white/80 mt-0.5">3D tour available on request</div>
-                    </a>
+                    <div className="space-y-2">
+                      <button
+                        onClick={() => {
+                          setSelectedUnit(unit);
+                          setShowFloorPlan(true);
+                          setFloorPlanError(false);
+                          fbq('trackCustom', 'ViewFloorPlan', {
+                            unit_type: unit.type,
+                            price_thb: unit.priceFrom * 1000000,
+                            price_usd: unit.priceUSD * 1000,
+                            bedrooms: unit.beds,
+                            size_sqm: unit.size,
+                            view_type: unit.view,
+                            source: 'quiz_recommendations'
+                          });
+                        }}
+                        className="w-full text-center py-3 rounded-xl bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 transition-all duration-300 text-sm font-semibold text-white shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                      >
+                        <div className="flex items-center justify-center gap-2">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <span>View Floor Plan & 3D Tour</span>
+                        </div>
+                      </button>
+                      <a
+                        href={getWhatsAppLink(unit)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => {
+                          fbq('track', 'Contact');
+                          fbq('trackCustom', 'WhatsAppClick', {
+                            unit_type: unit.type,
+                            price_thb: unit.priceFrom * 1000000,
+                            price_usd: unit.priceUSD * 1000,
+                            bedrooms: unit.beds,
+                            source: 'quiz_recommendations'
+                          });
+                        }}
+                        className="block text-center py-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20BA5A] hover:to-[#0F7A6A] transition-all duration-300 text-sm font-semibold text-white shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                      >
+                        <div className="flex items-center justify-center gap-2">
+                          <MessageCircle className="w-4 h-4" />
+                          <span>Get Pricing via WhatsApp</span>
+                        </div>
+                      </a>
+                    </div>
                   </div>
                 </motion.div>
               ))}
