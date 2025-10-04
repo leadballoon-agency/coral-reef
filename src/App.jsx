@@ -468,17 +468,17 @@ export default function CoralReefJomtienPage() {
           <AmenityCard
             title="Rooftop Infinity Pool"
             desc="59th floor 25m floating lap pool with breathtaking horizon views overlooking Jomtien Beach and the Gulf of Thailand."
-            img="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80"
+            img="/rooftop-infinity-pool.jpg"
           />
           <AmenityCard
             title="Sky Pool & Lounge"
             desc="40th floor cantilever pool with stunning sea views, perfect for sunset swims and relaxation above the city."
-            img="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
+            img="/skypool-and-lounge.jpg"
           />
           <AmenityCard
             title="Beachfront Pool Deck"
             desc="30th floor Jomtien beach view pool with direct ocean vistas, sunbeds, and tropical poolside atmosphere."
-            img="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80"
+            img="/beachfront pool.jpg"
           />
           <AmenityCard
             title="Premium Fitness Center"
