@@ -415,17 +415,26 @@ export default function CoralReefJomtienPage() {
 
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I've read your analysis and I'm ready to explore units. Can you help me find the perfect one?")}`}
+                  href="#residences"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white px-8 py-4 text-base font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  <span>Find Your Perfect Unit</span>
+                </a>
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'm interested in Copacabana Coral Reef. Can you help me?")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20BA5A] hover:to-[#0F7A6A] text-white px-8 py-4 text-base font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold hover:bg-white/10 hover:border-white/50 transition-all"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span>Get Personal Assistance (WhatsApp)</span>
+                  <span>WhatsApp</span>
                 </a>
                 <a
                   href="#residences"
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold hover:bg-white/10 hover:border-white/50 transition-all"
+                  className="hidden inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold hover:bg-white/10 hover:border-white/50 transition-all"
                 >
                   Browse All Units
                 </a>
