@@ -384,7 +384,7 @@ export default function CoralReefJomtienPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <LazyImage
-            src="https://propertiesthailand.co.uk/wp-content/uploads/2025/08/IMG_6389.jpg"
+            src="/hero-optimized.jpg"
             alt="Copacabana - Coral Reef Jomtien"
             className="h-full w-full object-cover"
             priority={true}
