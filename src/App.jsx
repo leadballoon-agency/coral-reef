@@ -100,7 +100,7 @@ const unitTypes = [
   { type: "Type 13", size: 44.8, beds: 1, priceFrom: 4.8, priceUSD: 123, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=fVrSaJ7G9yH" },
   { type: "Type 14", size: 64.9, beds: 2, priceFrom: 7.0, priceUSD: 180, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=MNHRJwjS4Kf" },
   { type: "Type 15", size: 67.6, beds: 2, priceFrom: 7.3, priceUSD: 187, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=SnFEvMTf7XD" },
-  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=h1in6cNKgU3" },
+  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "3-55" }, // 3D tour h1in6cNKgU3 shows 1BR instead of 2BR
   { type: "Type 20", size: 75.0, beds: 2, priceFrom: 8.1, priceUSD: 208, view: "Sea View", floorRange: "3-55" },
   { type: "Type 23", size: 82.5, beds: 2, priceFrom: 8.9, priceUSD: 229, view: "Sea View", floorRange: "3-55" },
   { type: "Type 25", size: 95.0, beds: 3, priceFrom: 10.3, priceUSD: 265, view: "Sea View", floorRange: "3-55" },
