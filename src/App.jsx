@@ -59,6 +59,29 @@ const getWhatsAppLink = (unit) => {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
 
+// Smart WhatsApp link for specific floor requests
+const getSmartFloorWhatsApp = (unit, floor, floorContext) => {
+  const message = `Hi! I'm interested in ${unit.type} (${unit.beds}BR, ${unit.size}sqm) on Floor ${floor} - ${floorContext}.
+
+Can you send me:
+• Tower floor plan for Floor ${floor}
+• This unit's position on that floor
+• Availability and pricing
+
+Thank you! 🏢`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+};
+
+// Get floor context labels
+const getFloorContext = (floor) => {
+  if (floor === 30) return { emoji: '🏊', label: 'Beach View Pool', description: 'Near 30th floor Jomtien beach view pool' };
+  if (floor === 40) return { emoji: '🌅', label: 'Sky Cantilever Pool', description: 'Near 40th floor sky pool with stunning views' };
+  if (floor === 59) return { emoji: '🏖️', label: 'Rooftop Infinity Pool', description: 'Rooftop level with 25m floating lap pool' };
+  if (floor >= 50) return { emoji: '🔝', label: 'Premium Upper Floors', description: 'Best views and maximum privacy' };
+  if (floor >= 25) return { emoji: '⭐', label: 'Mid-High Rise', description: 'Great balance of views and accessibility' };
+  return { emoji: '🏢', label: `Floor ${floor}`, description: `Level ${floor}` };
+};
+
 // Lazy loading image component
 const LazyImage = ({ src, alt, className, priority = false }) => {
   const [imageSrc, setImageSrc] = useState(priority ? src : null);
@@ -1025,10 +1048,36 @@ export default function CoralReefJomtienPage() {
                       }}
                       className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
                     />
-                    <div className="flex justify-between text-xs text-white/50 mt-1">
+                    <div className="flex justify-between text-xs text-white/50 mt-1 mb-3">
                       <span>Floor 3</span>
                       <span>Floor 55</span>
                     </div>
+
+                    {/* Pool Floor Markers */}
+                    <div className="flex justify-between items-center px-1 mb-3">
+                      <div className="text-xs text-white/40">Pool Floors:</div>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => setMinFloor(30)}
+                          className="px-2 py-1 rounded text-xs bg-sky-500/20 text-sky-300 hover:bg-sky-500/30 transition-colors"
+                        >
+                          30 🏊
+                        </button>
+                        <button
+                          onClick={() => setMinFloor(40)}
+                          className="px-2 py-1 rounded text-xs bg-sky-500/20 text-sky-300 hover:bg-sky-500/30 transition-colors"
+                        >
+                          40 🌅
+                        </button>
+                        <button
+                          onClick={() => setMinFloor(59)}
+                          className="px-2 py-1 rounded text-xs bg-sky-500/20 text-sky-300 hover:bg-sky-500/30 transition-colors"
+                        >
+                          59 🏖️
+                        </button>
+                      </div>
+                    </div>
+
                     {/* View Floor Layout Button */}
                     {towerFloorPlanMapping[minFloor] && (
                       <button
@@ -1045,7 +1094,7 @@ export default function CoralReefJomtienPage() {
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                           </svg>
-                          <span>View Floor {minFloor} Layout</span>
+                          <span>View Floor {minFloor} Layout {minFloor === 30 ? '🏊' : minFloor === 40 ? '🌅' : minFloor === 59 ? '🏖️' : ''}</span>
                         </div>
                       </button>
                     )}
@@ -1760,13 +1809,74 @@ export default function CoralReefJomtienPage() {
                   <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-xl p-4 mb-6">
                     <div className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1 a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                       </svg>
                       <div className="text-sm">
                         <p className="text-white/80 font-medium mb-1">Get High-Resolution Unit Layouts</p>
                         <p className="text-white/60">Request detailed unit layouts, 3D tours, and availability via WhatsApp</p>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Smart Floor Requests */}
+                  <div className="bg-gradient-to-r from-sky-500/10 to-cyan-500/10 border border-sky-500/20 rounded-xl p-4 mb-6">
+                    <p className="text-sm font-medium text-white/90 mb-3">💬 Ask about specific floors:</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {(() => {
+                        const [minFloor, maxFloor] = selectedUnit.floorRange.split('-').map(Number);
+                        const smartFloors = [];
+
+                        // Add pool floors if available in range
+                        if (30 >= minFloor && 30 <= maxFloor) {
+                          const context = getFloorContext(30);
+                          smartFloors.push({ floor: 30, ...context });
+                        }
+                        if (40 >= minFloor && 40 <= maxFloor) {
+                          const context = getFloorContext(40);
+                          smartFloors.push({ floor: 40, ...context });
+                        }
+                        if (59 >= minFloor && 59 <= maxFloor) {
+                          const context = getFloorContext(59);
+                          smartFloors.push({ floor: 59, ...context });
+                        }
+
+                        // Add top floor
+                        const topFloor = maxFloor;
+                        if (topFloor >= 50 && !smartFloors.find(f => f.floor === topFloor)) {
+                          const context = getFloorContext(topFloor);
+                          smartFloors.push({ floor: topFloor, ...context });
+                        }
+
+                        // Add mid-range floor if we have less than 3 options
+                        if (smartFloors.length < 3 && maxFloor - minFloor > 10) {
+                          const midFloor = Math.floor((minFloor + maxFloor) / 2);
+                          const context = getFloorContext(midFloor);
+                          smartFloors.push({ floor: midFloor, ...context });
+                        }
+
+                        return smartFloors.slice(0, 4).map(({ floor, emoji, label }) => (
+                          <a
+                            key={floor}
+                            href={getSmartFloorWhatsApp(selectedUnit, floor, label)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                              fbq('track', 'Contact');
+                              fbq('trackCustom', 'SmartFloorRequest', {
+                                unit_type: selectedUnit.type,
+                                floor: floor,
+                                floor_context: label
+                              });
+                            }}
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-sky-400/50 transition-all text-sm text-white/90 hover:text-white"
+                          >
+                            <span className="text-lg">{emoji}</span>
+                            <span className="font-medium">Floor {floor}</span>
+                          </a>
+                        ));
+                      })()}
+                    </div>
+                    <p className="text-xs text-white/50 mt-2">Tap to request tower floor plan via WhatsApp</p>
                   </div>
                 </div>
 
