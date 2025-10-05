@@ -16,22 +16,36 @@ const fbq = (...args) => {
   }
 };
 
-// Floor plan image mapping - using local organized assets from /public/unit-types/
+// Unit plan image mapping - individual apartment interior layouts from /public/unit-types/
+// These show the layout of individual units (NOT the tower floor plans)
 // See /public/unit-types/INDEX.md for full documentation
-const floorPlanMapping = {
-  "Type 3": "/unit-types/type-3/floorplan.jpg",
-  "Type 4": "/unit-types/type-4/floorplan.jpg",
-  "Type 6.1": "/unit-types/type-6.1/floorplan.jpg",
-  "Type 9": "/unit-types/type-9/floorplan.jpg",
-  "Type 13": "/unit-types/type-13/floorplan.jpg",
-  "Type 14": "/unit-types/type-14/floorplan.jpg",
-  "Type 15": "/unit-types/type-15/floorplan.jpg"
-  // Type 19+: Missing correct floor plans - see unit-types/INDEX.md for details
+const unitPlanMapping = {
+  "Type 3": "/unit-types/type-3.jpg",
+  "Type 4": "/unit-types/type-4-4.1.jpg",
+  "Type 6.1": "/unit-types/type-6.1-new.jpg",
+  "Type 9": "/unit-types/type-9.jpg",
+  "Type 13": "/unit-types/type-13.jpg",
+  "Type 14": "/unit-types/type-14.jpg",
+  "Type 15": "/unit-types/type-15.jpg",
+  "Type 19": "/unit-types/type-19.jpg"
 };
+
+// Tower floor plan mapping - complete floor layouts from /public/floor-plans/
+// Shows all unit positions on each floor (floors 5-54, excluding 13)
+const towerFloorPlanMapping = {};
+for (let floor = 5; floor <= 54; floor++) {
+  if (floor !== 13) { // Skip floor 13
+    towerFloorPlanMapping[floor] = `/floor-plans/${floor}.jpg`;
+  }
+}
+// Special floor (12ath)
+if (towerFloorPlanMapping[12]) {
+  // Keep 12.jpg, optionally note 12ath.jpg exists
+}
 
 // Generate WhatsApp link with pre-filled message
 const getWhatsAppLink = (unit) => {
-  const message = `Hi! I'm interested in ${unit.type} (${unit.beds}BR, ${unit.size}sqm, ${unit.view}). Please send the floor plan 📐`;
+  const message = `Hi! I'm interested in ${unit.type} (${unit.beds}BR, ${unit.size}sqm, ${unit.view}). Please send the unit layout 📐`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
 
@@ -100,13 +114,7 @@ const unitTypes = [
   { type: "Type 13", size: 44.8, beds: 1, priceFrom: 4.8, priceUSD: 123, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=fVrSaJ7G9yH" },
   { type: "Type 14", size: 64.9, beds: 2, priceFrom: 7.0, priceUSD: 180, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=MNHRJwjS4Kf" },
   { type: "Type 15", size: 67.6, beds: 2, priceFrom: 7.3, priceUSD: 187, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=SnFEvMTf7XD" },
-  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "3-55" }, // 3D tour h1in6cNKgU3 shows 1BR instead of 2BR
-  { type: "Type 20", size: 75.0, beds: 2, priceFrom: 8.1, priceUSD: 208, view: "Sea View", floorRange: "3-55" },
-  { type: "Type 23", size: 82.5, beds: 2, priceFrom: 8.9, priceUSD: 229, view: "Sea View", floorRange: "3-55" },
-  { type: "Type 25", size: 95.0, beds: 3, priceFrom: 10.3, priceUSD: 265, view: "Sea View", floorRange: "3-55" },
-  { type: "Type 28", size: 120.0, beds: 3, priceFrom: 13.0, priceUSD: 334, view: "Sea View", floorRange: "3-55" },
-  { type: "Type 30", size: 145.0, beds: 3, priceFrom: 15.7, priceUSD: 403, view: "Sea View", floorRange: "3-55" },
-  { type: "Type 35", size: 195.0, beds: 3, priceFrom: 21.1, priceUSD: 542, view: "Direct Sea View", floorRange: "40-55" },
+  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=h1in6cNKgU3" }, // Pool area may not be visible in 3D tour
 ];
 
 const gallery = [
@@ -241,11 +249,15 @@ export default function CoralReefJomtienPage() {
   const [investmentUnlocked, setInvestmentUnlocked] = useState(false);
   const [investmentEmail, setInvestmentEmail] = useState("");
 
-  // Floor plan preview modal
-  const [showFloorPlan, setShowFloorPlan] = useState(false);
+  // Unit plan preview modal (individual apartment interior layouts)
+  const [showUnitPlan, setShowUnitPlan] = useState(false);
   const [selectedUnit, setSelectedUnit] = useState(null);
-  const [floorPlanError, setFloorPlanError] = useState(false);
+  const [unitPlanError, setUnitPlanError] = useState(false);
   const [show3DTour, setShow3DTour] = useState(false);
+
+  // Tower floor plan viewer (complete building floor layouts showing all units)
+  const [showTowerFloorPlan, setShowTowerFloorPlan] = useState(false);
+  const [selectedFloorNumber, setSelectedFloorNumber] = useState(null);
 
   // Handle investment email unlock
   const handleInvestmentUnlock = (e) => {
@@ -827,8 +839,8 @@ export default function CoralReefJomtienPage() {
                       <button
                         onClick={() => {
                           setSelectedUnit(unit);
-                          setShowFloorPlan(true);
-                          setFloorPlanError(false);
+                          setShowUnitPlan(true);
+                          setUnitPlanError(false);
                           fbq('trackCustom', 'ViewFloorPlan', {
                             unit_type: unit.type,
                             price_thb: unit.priceFrom * 1000000,
@@ -845,7 +857,7 @@ export default function CoralReefJomtienPage() {
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                           </svg>
-                          <span>View Floor Plan & 3D Tour</span>
+                          <span>View Unit Layout & 3D Tour</span>
                         </div>
                       </button>
                       <a
@@ -967,6 +979,26 @@ export default function CoralReefJomtienPage() {
               <span>Floor 3</span>
               <span>Floor 55</span>
             </div>
+            {/* View Floor Layout Button */}
+            {towerFloorPlanMapping[minFloor] && (
+              <button
+                onClick={() => {
+                  setSelectedFloorNumber(minFloor);
+                  setShowTowerFloorPlan(true);
+                  fbq('trackCustom', 'ViewTowerFloorPlan', {
+                    floor_number: minFloor
+                  });
+                }}
+                className="mt-3 w-full text-center py-2 rounded-lg bg-gradient-to-r from-teal-500/20 to-sky-500/20 border border-teal-500/30 hover:from-teal-500/30 hover:to-sky-500/30 hover:border-teal-500/50 transition-all duration-200 text-sm font-medium text-teal-200"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  <span>View Floor {minFloor} Layout</span>
+                </div>
+              </button>
+            )}
           </div>
         </div>
 
@@ -1019,8 +1051,8 @@ export default function CoralReefJomtienPage() {
                     <button
                       onClick={() => {
                         setSelectedUnit(unit);
-                        setShowFloorPlan(true);
-                        setFloorPlanError(false);
+                        setShowUnitPlan(true);
+                        setUnitPlanError(false);
                         // Track floor plan view
                         fbq('trackCustom', 'ViewFloorPlan', {
                           unit_type: unit.type,
@@ -1584,13 +1616,13 @@ export default function CoralReefJomtienPage() {
         </div>
       </footer>
       {/* FLOOR PLAN PREVIEW MODAL */}
-      {showFloorPlan && selectedUnit && (
+      {showUnitPlan && selectedUnit && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm overflow-y-auto p-4 md:p-6"
-          onClick={() => setShowFloorPlan(false)}
+          onClick={() => setShowUnitPlan(false)}
         >
           <motion.div
             initial={{ scale: 0.9, y: 20 }}
@@ -1600,7 +1632,7 @@ export default function CoralReefJomtienPage() {
           >
             {/* Close Button */}
             <button
-              onClick={() => setShowFloorPlan(false)}
+              onClick={() => setShowUnitPlan(false)}
               className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center transition-all"
             >
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1609,16 +1641,16 @@ export default function CoralReefJomtienPage() {
             </button>
 
             <div className="grid md:grid-cols-2 gap-6 p-6 md:p-8">
-              {/* Left: Floor Plan Image */}
+              {/* Left: Unit Layout Image */}
               <div className="flex flex-col">
-                <h3 className="text-2xl font-bold mb-4 text-white">{selectedUnit.type} Floor Plan</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">{selectedUnit.type} Unit Layout</h3>
                 <div className="relative rounded-xl overflow-hidden border border-white/20 bg-white min-h-[300px] md:min-h-[400px]">
-                  {!floorPlanError ? (
+                  {!unitPlanError ? (
                     <img
-                      src={floorPlanMapping[selectedUnit.type] || `/floorplans/type-${selectedUnit.type.replace('Type ', '').toLowerCase()}.jpg`}
-                      alt={`${selectedUnit.type} floor plan`}
+                      src={unitPlanMapping[selectedUnit.type] || `/floorplans/type-${selectedUnit.type.replace('Type ', '').toLowerCase()}.jpg`}
+                      alt={`${selectedUnit.type} unit layout`}
                       className="w-full h-auto"
-                      onError={() => setFloorPlanError(true)}
+                      onError={() => setUnitPlanError(true)}
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
@@ -1626,14 +1658,14 @@ export default function CoralReefJomtienPage() {
                         <svg className="w-16 h-16 text-white/20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <p className="text-white/60 text-lg font-medium mb-2">Floor Plan Available via WhatsApp</p>
-                        <p className="text-white/40 text-sm">Request high-resolution floor plans, 3D tours, and detailed specifications</p>
+                        <p className="text-white/60 text-lg font-medium mb-2">Unit Layout Available via WhatsApp</p>
+                        <p className="text-white/40 text-sm">Request high-resolution unit layouts, 3D tours, and detailed specifications</p>
                       </div>
                     </div>
                   )}
                 </div>
                 <p className="text-white/50 text-xs mt-2 text-center">
-                  {floorPlanError ? 'Contact us for complete floor plan documentation' : 'Floor plan for illustration purposes. Details may vary.'}
+                  {unitPlanError ? 'Contact us for complete unit layout documentation' : 'Unit layout for illustration purposes. Details may vary.'}
                 </p>
               </div>
 
@@ -1677,8 +1709,8 @@ export default function CoralReefJomtienPage() {
                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                       </svg>
                       <div className="text-sm">
-                        <p className="text-white/80 font-medium mb-1">Get High-Resolution Floor Plans</p>
-                        <p className="text-white/60">Request detailed floor plans, 3D tours, and availability via WhatsApp</p>
+                        <p className="text-white/80 font-medium mb-1">Get High-Resolution Unit Layouts</p>
+                        <p className="text-white/60">Request detailed unit layouts, 3D tours, and availability via WhatsApp</p>
                       </div>
                     </div>
                   </div>
@@ -1728,7 +1760,7 @@ export default function CoralReefJomtienPage() {
                     </div>
                   </a>
                   <button
-                    onClick={() => setShowFloorPlan(false)}
+                    onClick={() => setShowUnitPlan(false)}
                     className="w-full py-3 rounded-xl border border-white/20 hover:bg-white/5 transition-all text-white/80 hover:text-white"
                   >
                     Continue Browsing
@@ -1814,6 +1846,115 @@ export default function CoralReefJomtienPage() {
                   Close Tour
                 </button>
               </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* Tower Floor Plan Modal */}
+      {showTowerFloorPlan && selectedFloorNumber && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setShowTowerFloorPlan(false)}
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        >
+          <motion.div
+            initial={{ scale: 0.95, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.95, y: 20 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-6xl w-full max-h-[90vh] overflow-auto rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 border border-white/20 shadow-2xl"
+          >
+            {/* Header */}
+            <div className="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-white/10 bg-gradient-to-r from-slate-900/95 to-slate-800/95 backdrop-blur">
+              <div>
+                <h3 className="text-2xl font-bold text-white">Floor {selectedFloorNumber} Layout</h3>
+                <p className="text-white/60 text-sm mt-1">Complete tower floor plan showing all unit positions</p>
+              </div>
+              <button
+                onClick={() => setShowTowerFloorPlan(false)}
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all"
+              >
+                <span className="text-white/80 hover:text-white text-2xl leading-none">×</span>
+              </button>
+            </div>
+
+            {/* Floor Plan Image */}
+            <div className="p-6">
+              <div className="relative rounded-xl overflow-hidden border border-white/20 bg-white">
+                <img
+                  src={towerFloorPlanMapping[selectedFloorNumber]}
+                  alt={`Floor ${selectedFloorNumber} layout`}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            {/* Floor Navigation */}
+            <div className="p-6 border-t border-white/10 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <button
+                  onClick={() => {
+                    let prevFloor = selectedFloorNumber - 1;
+                    while (prevFloor >= 5 && !towerFloorPlanMapping[prevFloor]) {
+                      prevFloor--;
+                    }
+                    if (towerFloorPlanMapping[prevFloor]) {
+                      setSelectedFloorNumber(prevFloor);
+                      setMinFloor(prevFloor);
+                    }
+                  }}
+                  disabled={selectedFloorNumber <= 5}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-white"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  <span>Previous Floor</span>
+                </button>
+                <span className="text-white/60 text-sm">Floor {selectedFloorNumber} of 54</span>
+                <button
+                  onClick={() => {
+                    let nextFloor = selectedFloorNumber + 1;
+                    while (nextFloor <= 54 && !towerFloorPlanMapping[nextFloor]) {
+                      nextFloor++;
+                    }
+                    if (towerFloorPlanMapping[nextFloor]) {
+                      setSelectedFloorNumber(nextFloor);
+                      setMinFloor(nextFloor);
+                    }
+                  }}
+                  disabled={selectedFloorNumber >= 54}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-white"
+                >
+                  <span>Next Floor</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* CTA */}
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi! I'm interested in units on Floor ${selectedFloorNumber}. Can you tell me which units are available?`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  fbq('track', 'Contact');
+                  fbq('trackCustom', 'WhatsAppClick', {
+                    floor_number: selectedFloorNumber,
+                    source: 'tower_floor_plan_modal'
+                  });
+                }}
+                className="block text-center py-4 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20BA5A] hover:to-[#0F7A6A] transition-all text-base font-semibold text-white shadow-lg hover:shadow-xl"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Ask About Floor {selectedFloorNumber} Availability</span>
+                </div>
+              </a>
             </div>
           </motion.div>
         </motion.div>

@@ -14,13 +14,13 @@ unit-types/
 ├── type-13/         ✅ Complete (1BR, 44.8 sqm)
 ├── type-14/         ✅ Complete (2BR, 64.9 sqm)
 ├── type-15/         ✅ Complete (2BR, 67.6 sqm)
-├── type-19/         ❌ Incomplete (2BR, 71.5 sqm) - Developer has wrong assets
-├── type-20/         ⚠️  Missing assets (2BR, 75.0 sqm)
-├── type-23/         ⚠️  Missing assets (2BR, 82.5 sqm)
-├── type-25/         ⚠️  Missing assets (3BR, 95.0 sqm)
-├── type-28/         ⚠️  Missing assets (3BR, 120.0 sqm)
-├── type-30/         ⚠️  Missing assets (3BR, 145.0 sqm)
-└── type-35/         ⚠️  Missing assets (3BR, 195.0 sqm - Penthouse)
+├── type-19/         ✅ Complete (1BR+Pool, 71.5 sqm) - Floor plan verified page 112
+├── type-20/         ⚠️  Missing floor plan (2BR, 75.0 sqm)
+├── type-23/         ⚠️  Missing floor plan (2BR, 85.3 sqm)
+├── type-25/         ⚠️  Missing floor plan (2BR+Pool, 91.7 sqm)
+├── type-28/         ⚠️  Missing floor plan (2BR+Pool, 109.2 sqm)
+├── type-30/         ⚠️  Missing floor plan (3BR, 120.7 sqm)
+└── type-35/         ⚠️  Missing floor plan (3BR, 145.9 sqm)
 ```
 
 ## Each Folder Contains
@@ -41,17 +41,24 @@ const floorPlanMapping = {
   "Type 9": "/unit-types/type-9/floorplan.jpg",
   "Type 13": "/unit-types/type-13/floorplan.jpg",
   "Type 14": "/unit-types/type-14/floorplan.jpg",
-  "Type 15": "/unit-types/type-15/floorplan.jpg"
-  // Type 19 and others: missing correct assets
+  "Type 15": "/unit-types/type-15/floorplan.jpg",
+  "Type 19": "/unit-types/type-19/floorplan.jpg"
+  // Types 20, 23, 25, 28, 30, 35: floor plans not yet located in sales kit
 };
 ```
 
 ## Known Issues
 
-### Type 19 Problems
-- **Floor Plan**: Page 109 shows Type 16 (84.7 sqm) instead of Type 19 (71.5 sqm)
-- **3D Tour**: Shows 1BR unit instead of 2BR
-- **Action**: Contact Copacabana developer for correct assets
+### Missing Floor Plans
+The following unit types still need floor plans located and downloaded:
+- **Type 20** (75.0 sqm, 2BR)
+- **Type 23** (85.3 sqm, 2BR)
+- **Type 25** (91.7 sqm, 2BR+Pool)
+- **Type 28** (109.2 sqm, 2BR+Pool)
+- **Type 30** (120.7 sqm, 3BR)
+- **Type 35** (145.9 sqm, 3BR)
+
+Note: Pages 107-122 only contained 4 individual unit types. Most pages show combined unit floor plans.
 
 ## Asset Sources
 
