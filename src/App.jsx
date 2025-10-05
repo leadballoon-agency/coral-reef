@@ -115,26 +115,26 @@ const heroImages = [
 
 // Unit types data from Copacabana developer site
 // View types: "Direct Sea View" (Zone A) or "Sea View" (Zone B-C)
-// Floor ranges: Based on floor matrix data (3-55 floors available)
+// Floor ranges: Based on comprehensive floor plan analysis (specific units may be sold - contact for availability)
 const unitTypes = [
-  { type: "Type 3", size: 32.1, beds: 1, priceFrom: 3.5, priceUSD: 90, view: "Direct Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=wug3dEdCdqP" },
-  { type: "Type 4", size: 34.3, beds: 1, priceFrom: 3.7, priceUSD: 95, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=xLwCG1Eefnq" },
-  { type: "Type 6.1", size: 38.6, beds: 1, priceFrom: 4.2, priceUSD: 108, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=u3XaeBLSEg5" },
-  { type: "Type 9", size: 38.5, beds: 1, priceFrom: 4.1, priceUSD: 105, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=UMub2fqduU5" },
-  { type: "Type 13", size: 44.8, beds: 1, priceFrom: 4.8, priceUSD: 123, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=fVrSaJ7G9yH" },
-  { type: "Type 14", size: 64.9, beds: 2, priceFrom: 7.0, priceUSD: 180, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=MNHRJwjS4Kf" },
-  { type: "Type 15", size: 67.6, beds: 2, priceFrom: 7.3, priceUSD: 187, view: "Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=SnFEvMTf7XD" },
-  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "3-55", tour3D: "https://my.matterport.com/show/?m=h1in6cNKgU3" }, // Pool area may not be visible in 3D tour
-  { type: "Type 12", size: 52.8, beds: 1, priceFrom: 5.7, priceUSD: 146, view: "Sea View", floorRange: "3-55" },
-  { type: "Type 15.1", size: 70.5, beds: 2, priceFrom: 7.6, priceUSD: 195, view: "Sea View", floorRange: "3-55" },
-  { type: "Type 15.2", size: 82.7, beds: 2, priceFrom: 8.9, priceUSD: 229, view: "Direct Sea View", floorRange: "3-55" },
-  { type: "Type 16", size: 84.7, beds: 2, priceFrom: 9.2, priceUSD: 234, view: "Sea View", floorRange: "3-55" },
-  // 3 Bedroom Units
-  { type: "Type A2", size: 146.4, beds: 3, priceFrom: 15.8, priceUSD: 405, view: "Sea View", floorRange: "3-55" },
-  { type: "Type A4", size: 146.4, beds: 3, priceFrom: 15.8, priceUSD: 405, view: "Sea View", floorRange: "3-55" },
-  { type: "Type A5", size: 122.5, beds: 3, priceFrom: 13.2, priceUSD: 339, view: "Sea View", floorRange: "3-55" },
-  { type: "Type AB1", size: 195, beds: 3, priceFrom: 21.0, priceUSD: 540, view: "Direct Sea View", floorRange: "3-55" },
-  { type: "Type D1", size: 165, beds: 3, priceFrom: 17.8, priceUSD: 457, view: "Direct Sea View", floorRange: "3-55" },
+  { type: "Type 3", size: 32.1, beds: 1, priceFrom: 3.5, priceUSD: 90, view: "Direct Sea View", floorRange: "7-50", tour3D: "https://my.matterport.com/show/?m=wug3dEdCdqP" },
+  { type: "Type 4", size: 34.3, beds: 1, priceFrom: 3.7, priceUSD: 95, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=xLwCG1Eefnq" },
+  { type: "Type 6.1", size: 38.6, beds: 1, priceFrom: 4.2, priceUSD: 108, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=u3XaeBLSEg5" },
+  { type: "Type 9", size: 38.5, beds: 1, priceFrom: 4.1, priceUSD: 105, view: "Sea View", floorRange: "7-50", tour3D: "https://my.matterport.com/show/?m=UMub2fqduU5" },
+  { type: "Type 13", size: 44.8, beds: 1, priceFrom: 4.8, priceUSD: 123, view: "Sea View", floorRange: "7-49", tour3D: "https://my.matterport.com/show/?m=fVrSaJ7G9yH" },
+  { type: "Type 14", size: 64.9, beds: 2, priceFrom: 7.0, priceUSD: 180, view: "Sea View", floorRange: "16-54", tour3D: "https://my.matterport.com/show/?m=MNHRJwjS4Kf" },
+  { type: "Type 15", size: 67.6, beds: 2, priceFrom: 7.3, priceUSD: 187, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=SnFEvMTf7XD" },
+  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "26-48", tour3D: "https://my.matterport.com/show/?m=h1in6cNKgU3" },
+  { type: "Type 12", size: 52.8, beds: 1, priceFrom: 5.7, priceUSD: 146, view: "Sea View", floorRange: "7-41" },
+  { type: "Type 15.1", size: 70.5, beds: 2, priceFrom: 7.6, priceUSD: 195, view: "Sea View", floorRange: "6-48" },
+  { type: "Type 15.2", size: 82.7, beds: 2, priceFrom: 8.9, priceUSD: 229, view: "Direct Sea View", floorRange: "16-42" },
+  { type: "Type 16", size: 84.7, beds: 2, priceFrom: 9.2, priceUSD: 234, view: "Sea View", floorRange: "16-42" },
+  // 3 Bedroom Units (Exclusive Upper Floors)
+  { type: "Type A2", size: 146.4, beds: 3, priceFrom: 15.8, priceUSD: 405, view: "Sea View", floorRange: "45-50" },
+  { type: "Type A4", size: 146.4, beds: 3, priceFrom: 15.8, priceUSD: 405, view: "Sea View", floorRange: "49-49" },
+  { type: "Type A5", size: 122.5, beds: 3, priceFrom: 13.2, priceUSD: 339, view: "Sea View", floorRange: "25-49" },
+  { type: "Type AB1", size: 195, beds: 3, priceFrom: 21.0, priceUSD: 540, view: "Direct Sea View", floorRange: "51-54" },
+  { type: "Type D1", size: 165, beds: 3, priceFrom: 17.8, priceUSD: 457, view: "Direct Sea View", floorRange: "40-54" },
 ];
 
 const gallery = [
