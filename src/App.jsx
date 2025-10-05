@@ -24,9 +24,9 @@ const floorPlanMapping = {
   "Type 9": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_098-scaled.jpg",
   "Type 13": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_104-scaled.jpg",
   "Type 14": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_105-scaled.jpg",
-  "Type 15": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_106-scaled.jpg",
-  "Type 19": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_109-scaled.jpg"
-  // Other types will gracefully fall back to placeholder
+  "Type 15": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_106-scaled.jpg"
+  // Type 19: Page 109 shows incorrect floor plan (Type 16 84.7sqm instead of Type 19 71.5sqm)
+  // Other types will gracefully fall back to "Floor Plan Available via WhatsApp" message
 };
 
 // Generate WhatsApp link with pre-filled message
