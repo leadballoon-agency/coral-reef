@@ -16,17 +16,17 @@ const fbq = (...args) => {
   }
 };
 
-// Floor plan image mapping (unit type to official Copacabana page numbers)
+// Floor plan image mapping - using local organized assets from /public/unit-types/
+// See /public/unit-types/INDEX.md for full documentation
 const floorPlanMapping = {
-  "Type 3": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_089-scaled.jpg",
-  "Type 4": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_091-scaled.jpg",
-  "Type 6.1": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_096-scaled.jpg",
-  "Type 9": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_098-scaled.jpg",
-  "Type 13": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_104-scaled.jpg",
-  "Type 14": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_105-scaled.jpg",
-  "Type 15": "https://copacabanagroup.com/wp-content/uploads/2025/06/SALELKITS-20250601-TPK-HQ-FOR-PRINT_Page_106-scaled.jpg"
-  // Type 19: Page 109 shows incorrect floor plan (Type 16 84.7sqm instead of Type 19 71.5sqm)
-  // Other types will gracefully fall back to "Floor Plan Available via WhatsApp" message
+  "Type 3": "/unit-types/type-3/floorplan.jpg",
+  "Type 4": "/unit-types/type-4/floorplan.jpg",
+  "Type 6.1": "/unit-types/type-6.1/floorplan.jpg",
+  "Type 9": "/unit-types/type-9/floorplan.jpg",
+  "Type 13": "/unit-types/type-13/floorplan.jpg",
+  "Type 14": "/unit-types/type-14/floorplan.jpg",
+  "Type 15": "/unit-types/type-15/floorplan.jpg"
+  // Type 19+: Missing correct floor plans - see unit-types/INDEX.md for details
 };
 
 // Generate WhatsApp link with pre-filled message
