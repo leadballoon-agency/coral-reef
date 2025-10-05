@@ -124,7 +124,7 @@ const unitTypes = [
   { type: "Type 13", size: 44.8, beds: 1, priceFrom: 4.8, priceUSD: 123, view: "Sea View", floorRange: "7-49", tour3D: "https://my.matterport.com/show/?m=fVrSaJ7G9yH" },
   { type: "Type 14", size: 64.9, beds: 2, priceFrom: 7.0, priceUSD: 180, view: "Sea View", floorRange: "16-54", tour3D: "https://my.matterport.com/show/?m=MNHRJwjS4Kf" },
   { type: "Type 15", size: 67.6, beds: 2, priceFrom: 7.3, priceUSD: 187, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=SnFEvMTf7XD" },
-  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "26-48", tour3D: "https://my.matterport.com/show/?m=h1in6cNKgU3" },
+  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "26-48" },
   { type: "Type 12", size: 52.8, beds: 1, priceFrom: 5.7, priceUSD: 146, view: "Sea View", floorRange: "7-41" },
   { type: "Type 15.1", size: 70.5, beds: 2, priceFrom: 7.6, priceUSD: 195, view: "Sea View", floorRange: "6-48" },
   { type: "Type 15.2", size: 82.7, beds: 2, priceFrom: 8.9, priceUSD: 229, view: "Direct Sea View", floorRange: "16-42" },
@@ -264,6 +264,7 @@ export default function CoralReefJomtienPage() {
     budget: null
   });
   const [showRecommendations, setShowRecommendations] = useState(false);
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   // Investment section email gate
   const [investmentUnlocked, setInvestmentUnlocked] = useState(false);
@@ -913,114 +914,147 @@ export default function CoralReefJomtienPage() {
           </motion.div>
         )}
 
-        {/* Filters */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
-          <div>
-            <label className="text-sm text-white/70 mb-2 block">Bedrooms</label>
-            <select
-              value={selectedBeds}
-              onChange={(e) => {
-                setSelectedBeds(e.target.value);
-                fbq('trackCustom', 'FilterUsage', {
-                  filter_type: 'bedrooms',
-                  filter_value: e.target.value
-                });
-              }}
-              className="w-full rounded-xl border border-white/20 bg-black/20 px-4 py-3 outline-none focus:border-white/40"
-            >
-              <option value="all">All Bedrooms</option>
-              <option value="1">1 Bedroom</option>
-              <option value="2">2 Bedrooms</option>
-              <option value="3">3 Bedrooms</option>
-            </select>
-          </div>
-          <div>
-            <label className="text-sm text-white/70 mb-2 block">View Type</label>
-            <select
-              value={selectedView}
-              onChange={(e) => {
-                setSelectedView(e.target.value);
-                fbq('trackCustom', 'FilterUsage', {
-                  filter_type: 'view_type',
-                  filter_value: e.target.value
-                });
-              }}
-              className="w-full rounded-xl border border-white/20 bg-black/20 px-4 py-3 outline-none focus:border-white/40"
-            >
-              <option value="all">All Views</option>
-              <option value="Direct Sea View">Direct Sea View</option>
-              <option value="Sea View">Sea View</option>
-            </select>
-          </div>
-          <div>
-            <label className="text-sm text-white/70 mb-2 block">Max Budget: {maxBudget}M THB (${Math.round(maxBudget * 25.7)}K USD)</label>
-            <input
-              type="range"
-              min="3"
-              max="25"
-              step="0.5"
-              value={maxBudget}
-              onChange={(e) => {
-                const newBudget = parseFloat(e.target.value);
-                setMaxBudget(newBudget);
-                fbq('trackCustom', 'FilterUsage', {
-                  filter_type: 'budget',
-                  filter_value: newBudget,
-                  filter_value_usd: Math.round(newBudget * 25.7)
-                });
-              }}
-              className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
-            />
-          </div>
-          <div>
-            <label className="text-sm text-white/70 mb-2 block">
-              Floor Level: {minFloor}+
-              {minFloor >= 30 && minFloor < 40 && <span className="text-sky-300 ml-1">• Pool at 30</span>}
-              {minFloor >= 40 && minFloor < 59 && <span className="text-sky-300 ml-1">• Pool at 40</span>}
-              {minFloor >= 59 && <span className="text-sky-300 ml-1">• Rooftop Pool</span>}
-            </label>
-            <input
-              type="range"
-              min="3"
-              max="55"
-              step="1"
-              value={minFloor}
-              onChange={(e) => {
-                const newFloor = parseInt(e.target.value);
-                setMinFloor(newFloor);
-                fbq('trackCustom', 'FilterUsage', {
-                  filter_type: 'floor_level',
-                  filter_value: newFloor
-                });
-              }}
-              className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
-            />
-            <div className="flex justify-between text-xs text-white/50 mt-1">
-              <span>Floor 3</span>
-              <span>Floor 55</span>
+        {/* Filters - hide while quiz is active */}
+        {!showQuiz && (
+          <>
+            {/* Primary Filters */}
+            <div className="grid md:grid-cols-3 gap-4 mb-4 p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
+              <div>
+                <label className="text-sm text-white/70 mb-2 block">Bedrooms</label>
+                <select
+                  value={selectedBeds}
+                  onChange={(e) => {
+                    setSelectedBeds(e.target.value);
+                    fbq('trackCustom', 'FilterUsage', {
+                      filter_type: 'bedrooms',
+                      filter_value: e.target.value
+                    });
+                  }}
+                  className="w-full rounded-xl border border-white/20 bg-black/20 px-4 py-3 outline-none focus:border-white/40"
+                >
+                  <option value="all">All Bedrooms</option>
+                  <option value="1">1 Bedroom</option>
+                  <option value="2">2 Bedrooms</option>
+                  <option value="3">3 Bedrooms</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-sm text-white/70 mb-2 block">View Type</label>
+                <select
+                  value={selectedView}
+                  onChange={(e) => {
+                    setSelectedView(e.target.value);
+                    fbq('trackCustom', 'FilterUsage', {
+                      filter_type: 'view_type',
+                      filter_value: e.target.value
+                    });
+                  }}
+                  className="w-full rounded-xl border border-white/20 bg-black/20 px-4 py-3 outline-none focus:border-white/40"
+                >
+                  <option value="all">All Views</option>
+                  <option value="Direct Sea View">Direct Sea View</option>
+                  <option value="Sea View">Sea View</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-sm text-white/70 mb-2 block">Max Budget: {maxBudget}M THB (${Math.round(maxBudget * 25.7)}K USD)</label>
+                <input
+                  type="range"
+                  min="3"
+                  max="25"
+                  step="0.5"
+                  value={maxBudget}
+                  onChange={(e) => {
+                    const newBudget = parseFloat(e.target.value);
+                    setMaxBudget(newBudget);
+                    fbq('trackCustom', 'FilterUsage', {
+                      filter_type: 'budget',
+                      filter_value: newBudget,
+                      filter_value_usd: Math.round(newBudget * 25.7)
+                    });
+                  }}
+                  className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
+                />
+              </div>
             </div>
-            {/* View Floor Layout Button */}
-            {towerFloorPlanMapping[minFloor] && (
+
+            {/* Advanced Filters (Collapsible) */}
+            <div className="mb-8">
               <button
-                onClick={() => {
-                  setSelectedFloorNumber(minFloor);
-                  setShowTowerFloorPlan(true);
-                  fbq('trackCustom', 'ViewTowerFloorPlan', {
-                    floor_number: minFloor
-                  });
-                }}
-                className="mt-3 w-full text-center py-2 rounded-lg bg-gradient-to-r from-teal-500/20 to-sky-500/20 border border-teal-500/30 hover:from-teal-500/30 hover:to-sky-500/30 hover:border-teal-500/50 transition-all duration-200 text-sm font-medium text-teal-200"
+                onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+                className="text-sm text-white/60 hover:text-white/90 transition-colors flex items-center gap-2 mb-4"
               >
-                <div className="flex items-center justify-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                  <span>View Floor {minFloor} Layout</span>
-                </div>
+                <span>Advanced Filters</span>
+                <svg
+                  className={`w-4 h-4 transition-transform ${showAdvancedFilters ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-            )}
-          </div>
-        </div>
+
+              {showAdvancedFilters && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10"
+                >
+                  <div>
+                    <label className="text-sm text-white/70 mb-2 block">
+                      Floor Level: {minFloor}+
+                      {minFloor >= 30 && minFloor < 40 && <span className="text-sky-300 ml-1">• Pool at 30</span>}
+                      {minFloor >= 40 && minFloor < 59 && <span className="text-sky-300 ml-1">• Pool at 40</span>}
+                      {minFloor >= 59 && <span className="text-sky-300 ml-1">• Rooftop Pool</span>}
+                    </label>
+                    <input
+                      type="range"
+                      min="3"
+                      max="55"
+                      step="1"
+                      value={minFloor}
+                      onChange={(e) => {
+                        const newFloor = parseInt(e.target.value);
+                        setMinFloor(newFloor);
+                        fbq('trackCustom', 'FilterUsage', {
+                          filter_type: 'floor_level',
+                          filter_value: newFloor
+                        });
+                      }}
+                      className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs text-white/50 mt-1">
+                      <span>Floor 3</span>
+                      <span>Floor 55</span>
+                    </div>
+                    {/* View Floor Layout Button */}
+                    {towerFloorPlanMapping[minFloor] && (
+                      <button
+                        onClick={() => {
+                          setSelectedFloorNumber(minFloor);
+                          setShowTowerFloorPlan(true);
+                          fbq('trackCustom', 'ViewTowerFloorPlan', {
+                            floor_number: minFloor
+                          });
+                        }}
+                        className="mt-3 w-full text-center py-2 rounded-lg bg-gradient-to-r from-teal-500/20 to-sky-500/20 border border-teal-500/30 hover:from-teal-500/30 hover:to-sky-500/30 hover:border-teal-500/50 transition-all duration-200 text-sm font-medium text-teal-200"
+                      >
+                        <div className="flex items-center justify-center gap-2">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                          <span>View Floor {minFloor} Layout</span>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </>
+        )}
 
         {/* Conditionally show units grid only after widget is dismissed or quiz is completed */}
         {(widgetDismissed || showRecommendations) && (
