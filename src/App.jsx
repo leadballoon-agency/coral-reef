@@ -74,8 +74,8 @@ Thank you! 🏢`;
 
 // Get floor context labels
 const getFloorContext = (floor) => {
-  if (floor === 30) return { emoji: '🏊', label: 'Beach View Pool', description: 'Near 30th floor Jomtien beach view pool' };
-  if (floor === 40) return { emoji: '🌅', label: 'Sky Cantilever Pool', description: 'Near 40th floor sky pool with stunning views' };
+  if (floor === 6) return { emoji: '💎', label: '6th Floor Amenities', description: 'Near 6th floor pool with Jacuzzi, Onsen, Sauna and Steam room' };
+  if (floor === 51) return { emoji: '🌅', label: 'Sky Cantilever Pool', description: 'Near 51st floor cantilever pool with infinity views and pool bar' };
   if (floor === 59) return { emoji: '🏖️', label: 'Rooftop Infinity Pool', description: 'Rooftop level with 25m floating lap pool' };
   if (floor >= 50) return { emoji: '🔝', label: 'Premium Upper Floors', description: 'Best views and maximum privacy' };
   if (floor >= 25) return { emoji: '⭐', label: 'Mid-High Rise', description: 'Great balance of views and accessibility' };
@@ -140,24 +140,24 @@ const heroImages = [
 // View types: "Direct Sea View" (Zone A) or "Sea View" (Zone B-C)
 // Floor ranges: Based on comprehensive floor plan analysis (specific units may be sold - contact for availability)
 const unitTypes = [
-  { type: "Type 3", size: 32.1, beds: 1, priceFrom: 3.5, priceUSD: 90, view: "Direct Sea View", floorRange: "7-50", tour3D: "https://my.matterport.com/show/?m=wug3dEdCdqP" },
-  { type: "Type 4", size: 34.3, beds: 1, priceFrom: 3.7, priceUSD: 95, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=xLwCG1Eefnq" },
-  { type: "Type 6.1", size: 38.6, beds: 1, priceFrom: 4.2, priceUSD: 108, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=u3XaeBLSEg5" },
-  { type: "Type 9", size: 38.5, beds: 1, priceFrom: 4.1, priceUSD: 105, view: "Sea View", floorRange: "7-50", tour3D: "https://my.matterport.com/show/?m=UMub2fqduU5" },
-  { type: "Type 13", size: 44.8, beds: 1, priceFrom: 4.8, priceUSD: 123, view: "Sea View", floorRange: "7-49", tour3D: "https://my.matterport.com/show/?m=fVrSaJ7G9yH" },
-  { type: "Type 14", size: 64.9, beds: 2, priceFrom: 7.0, priceUSD: 180, view: "Sea View", floorRange: "16-54", tour3D: "https://my.matterport.com/show/?m=MNHRJwjS4Kf" },
-  { type: "Type 15", size: 67.6, beds: 2, priceFrom: 7.3, priceUSD: 187, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=SnFEvMTf7XD" },
-  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceUSD: 198, view: "Direct Sea View", floorRange: "26-48" },
-  { type: "Type 12", size: 52.8, beds: 1, priceFrom: 5.7, priceUSD: 146, view: "Sea View", floorRange: "7-41" },
-  { type: "Type 15.1", size: 70.5, beds: 2, priceFrom: 7.6, priceUSD: 195, view: "Sea View", floorRange: "6-48" },
-  { type: "Type 15.2", size: 82.7, beds: 2, priceFrom: 8.9, priceUSD: 229, view: "Direct Sea View", floorRange: "16-42" },
-  { type: "Type 16", size: 84.7, beds: 2, priceFrom: 9.2, priceUSD: 234, view: "Sea View", floorRange: "16-42" },
+  { type: "Type 3", size: 32.1, beds: 1, priceFrom: 3.5, priceGBP: 88, view: "Direct Sea View", floorRange: "7-50", tour3D: "https://my.matterport.com/show/?m=wug3dEdCdqP" },
+  { type: "Type 4", size: 34.3, beds: 1, priceFrom: 3.7, priceGBP: 93, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=xLwCG1Eefnq" },
+  { type: "Type 6.1", size: 38.6, beds: 1, priceFrom: 4.2, priceGBP: 105, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=u3XaeBLSEg5" },
+  { type: "Type 9", size: 38.5, beds: 1, priceFrom: 4.1, priceGBP: 103, view: "Sea View", floorRange: "7-50", tour3D: "https://my.matterport.com/show/?m=UMub2fqduU5" },
+  { type: "Type 13", size: 44.8, beds: 1, priceFrom: 4.8, priceGBP: 120, view: "Sea View", floorRange: "7-49", tour3D: "https://my.matterport.com/show/?m=fVrSaJ7G9yH" },
+  { type: "Type 14", size: 64.9, beds: 2, priceFrom: 7.0, priceGBP: 175, view: "Sea View", floorRange: "16-54", tour3D: "https://my.matterport.com/show/?m=MNHRJwjS4Kf" },
+  { type: "Type 15", size: 67.6, beds: 2, priceFrom: 7.3, priceGBP: 183, view: "Sea View", floorRange: "6-48", tour3D: "https://my.matterport.com/show/?m=SnFEvMTf7XD" },
+  { type: "Type 19", size: 71.5, beds: 2, priceFrom: 7.7, priceGBP: 193, view: "Direct Sea View", floorRange: "26-48" },
+  { type: "Type 12", size: 52.8, beds: 1, priceFrom: 5.7, priceGBP: 143, view: "Sea View", floorRange: "7-41" },
+  { type: "Type 15.1", size: 70.5, beds: 2, priceFrom: 7.6, priceGBP: 190, view: "Sea View", floorRange: "6-48" },
+  { type: "Type 15.2", size: 82.7, beds: 2, priceFrom: 8.9, priceGBP: 223, view: "Direct Sea View", floorRange: "16-42" },
+  { type: "Type 16", size: 84.7, beds: 2, priceFrom: 9.2, priceGBP: 230, view: "Sea View", floorRange: "16-42" },
   // 3 Bedroom Units (Exclusive Upper Floors)
-  { type: "Type A2", size: 146.4, beds: 3, priceFrom: 15.8, priceUSD: 405, view: "Sea View", floorRange: "45-50" },
-  { type: "Type A4", size: 146.4, beds: 3, priceFrom: 15.8, priceUSD: 405, view: "Sea View", floorRange: "49-49" },
-  { type: "Type A5", size: 122.5, beds: 3, priceFrom: 13.2, priceUSD: 339, view: "Sea View", floorRange: "25-49" },
-  { type: "Type AB1", size: 195, beds: 3, priceFrom: 21.0, priceUSD: 540, view: "Direct Sea View", floorRange: "51-54" },
-  { type: "Type D1", size: 165, beds: 3, priceFrom: 17.8, priceUSD: 457, view: "Direct Sea View", floorRange: "40-54" },
+  { type: "Type A2", size: 146.4, beds: 3, priceFrom: 15.8, priceGBP: 395, view: "Sea View", floorRange: "45-50" },
+  { type: "Type A4", size: 146.4, beds: 3, priceFrom: 15.8, priceGBP: 395, view: "Sea View", floorRange: "49-49" },
+  { type: "Type A5", size: 122.5, beds: 3, priceFrom: 13.2, priceGBP: 330, view: "Sea View", floorRange: "25-49" },
+  { type: "Type AB1", size: 195, beds: 3, priceFrom: 21.0, priceGBP: 525, view: "Direct Sea View", floorRange: "51-54" },
+  { type: "Type D1", size: 165, beds: 3, priceFrom: 17.8, priceGBP: 445, view: "Direct Sea View", floorRange: "40-54" },
 ];
 
 const gallery = [
@@ -456,7 +456,7 @@ export default function CoralReefJomtienPage() {
               <h1 className="mt-3 text-4xl md:text-6xl font-semibold leading-tight">
                 Ready to Find <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-teal-200">Your Unit?</span>
               </h1>
-              <p className="mt-5 text-white/80 text-lg">1,897 exclusive beachfront condos • 55 floors • From 3.5M THB ($90K USD) • Completion Q4 2027</p>
+              <p className="mt-5 text-white/80 text-lg">1,897 exclusive beachfront condos • 55 floors • From 3.5M THB (£88K) • Completion Q4 2027</p>
 
               {/* Urgency Bar */}
               <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
@@ -525,7 +525,7 @@ export default function CoralReefJomtienPage() {
         <div className="md:flex items-end justify-between gap-8">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-semibold">Experience the Luxury</h2>
-            <p className="mt-3 text-white/70">World‑class facilities including 2,000 sq.m. beach club, 30th floor Jomtien beach view pool, 40th floor large cantilever pool, 59th floor 25m rooftop floating lap pool, panoramic gym, sunken bar, 30+ pocket gardens, multipurpose sport court, and 24‑hour concierge service with valet parking and shuttle bus.</p>
+            <p className="mt-3 text-white/70">World-class facilities including beach club and ground floor wave pool, kids pool and garden. 6th floor pool with Jacuzzi, Onsen, Sauna and Steam room. Large cantilever pool on the 51st floor with infinity views, pool bar and jacuzzi. 59th floor 25m rooftop floating lap pool. 32 common area gardens, multipurpose sport court, and 24-hour security/concierge service with valet parking and shuttle bus. Mini-Mart, laundry, Spa, Salon and Massage. 5 storey Carpark.</p>
           </div>
           <div className="hidden md:block text-white/60 text-sm">Thoughtfully curated indoor & outdoor experiences</div>
         </div>
@@ -537,17 +537,17 @@ export default function CoralReefJomtienPage() {
           />
           <AmenityCard
             title="Sky Pool & Lounge"
-            desc="40th floor cantilever pool with stunning sea views, perfect for sunset swims and relaxation above the city."
+            desc="51st floor cantilever pool with infinity views, pool bar and jacuzzi, perfect for sunset swims and relaxation above the city."
             img="/skypool-and-lounge.jpg"
           />
           <AmenityCard
-            title="Beachfront Pool Deck"
-            desc="30th floor Jomtien beach view pool with direct ocean vistas, sunbeds, and tropical poolside atmosphere."
+            title="Ground Floor Wave Pool"
+            desc="Ground floor wave pool, kids pool and garden with beach club atmosphere, perfect for families and relaxation."
             img="/beachfront pool.jpg"
           />
           <AmenityCard
             title="Premium Fitness Center"
-            desc="State-of-the-art panoramic gym with floor-to-ceiling windows, modern equipment, and inspiring ocean views."
+            desc="State-of-the-art 360 SQM gym on 6th floor with panoramic windows, modern equipment, and inspiring ocean views."
             img="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80"
           />
           <AmenityCard
@@ -875,8 +875,8 @@ export default function CoralReefJomtienPage() {
                         <span className="text-white font-medium">{unit.priceFrom}M THB</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>USD:</span>
-                        <span className="text-white/60">~${unit.priceUSD}K</span>
+                        <span>GBP:</span>
+                        <span className="text-white/60">~£{unit.priceGBP}K</span>
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -1147,8 +1147,8 @@ export default function CoralReefJomtienPage() {
                         <span className="text-white font-medium">{unit.priceFrom}M THB</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>USD:</span>
-                        <span className="text-white/60">~${unit.priceUSD}K</span>
+                        <span>GBP:</span>
+                        <span className="text-white/60">~£{unit.priceGBP}K</span>
                       </div>
                     </div>
                     <button
@@ -1443,7 +1443,7 @@ export default function CoralReefJomtienPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-400 mt-1">✓</span>
-                <span>Furniture packages from 200K THB (1BR) to 600K THB (3BR)</span>
+                <span>Furniture packages, white goods, air conditioning and TVs included in unit price</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-400 mt-1">✓</span>
@@ -1608,7 +1608,7 @@ export default function CoralReefJomtienPage() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.567!2d100.89!3d12.893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUzJzM0LjgiTiAxMDDCsDUzJzI0LjAiRQ!5e0!3m2!1sen!2sth!4v1234567890!5m2!1sen!2sth&q=Jomtien+2nd+Road,+Nong+Prue,+Bang+Lamung,+Chonburi"
             width="100%"
-            height="400"
+            height="600"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
