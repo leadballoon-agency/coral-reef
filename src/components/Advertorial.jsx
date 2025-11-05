@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, MessageCircle } from 'lucide-react';
 
 const WHATSAPP_NUMBER = "66959451665";
 
+// Facebook Pixel helper
+const fbq = (...args) => {
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq(...args);
+  }
+};
+
 const Advertorial = () => {
+  // Track page view on mount
+  useEffect(() => {
+    fbq('track', 'ViewContent', {
+      content_name: 'Birmingham to Beachfront Advertorial',
+      content_category: 'Advertorial'
+    });
+  }, []);
+
+  // Track WhatsApp clicks
+  const trackWhatsAppClick = (location) => {
+    fbq('track', 'Contact');
+    fbq('trackCustom', 'AdvertorialWhatsAppClick', {
+      location: location,
+      advertorial: 'Birmingham to Beachfront'
+    });
+  };
+
+  // Track CTA clicks
+  const trackCTAClick = (cta_type) => {
+    fbq('trackCustom', 'AdvertorialCTAClick', {
+      cta_type: cta_type,
+      advertorial: 'Birmingham to Beachfront'
+    });
+  };
+
   return (
     <>
       <Helmet>

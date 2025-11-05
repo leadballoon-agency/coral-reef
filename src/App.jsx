@@ -3,11 +3,7 @@ import { motion } from "framer-motion";
 import { MapPin, Waves, Trees, Building2, BedDouble, Ruler, Calendar, ShieldCheck, LineChart, Phone, MessageCircle, Award, TrendingUp } from "lucide-react";
 
 // Configuration
-// WhatsApp number - replace with actual number
-const WHATSAPP_NUMBER = "{{WHATSAPP_NUMBER}}";
-
-// Facebook Pixel ID - replace with your actual pixel ID
-const FB_PIXEL_ID = "{{FB_PIXEL_ID}}";
+const WHATSAPP_NUMBER = "66959451665";
 
 // Facebook Pixel helper function
 const fbq = (...args) => {
@@ -274,6 +270,14 @@ export default function CoralReefJomtienPage() {
   const [maxBudget, setMaxBudget] = useState(25);
   const [minFloor, setMinFloor] = useState(3);
   const [selectedView, setSelectedView] = useState("all");
+
+  // Track page view on mount
+  useEffect(() => {
+    fbq('track', 'ViewContent', {
+      content_name: 'Coral Reef Jomtien Landing Page',
+      content_category: 'Property Listing'
+    });
+  }, []);
 
   // Quiz state
   const [widgetDismissed, setWidgetDismissed] = useState(false); // Track if user dismissed widget
