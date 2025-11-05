@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MapPin, Waves, Trees, Building2, BedDouble, Ruler, Calendar, ShieldCheck, LineChart, Phone, MessageCircle, Award, TrendingUp } from "lucide-react";
 
 // Configuration
-const WHATSAPP_NUMBER = "66959451665";
+const WHATSAPP_NUMBER = "447775978555";
 
 // Facebook Pixel helper function
 const fbq = (...args) => {

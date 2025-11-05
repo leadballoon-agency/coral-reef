@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, MessageCircle } from 'lucide-react';
 
-const WHATSAPP_NUMBER = "66959451665";
+const WHATSAPP_NUMBER = "447775978555";
 
 // Facebook Pixel helper
 const fbq = (...args) => {
