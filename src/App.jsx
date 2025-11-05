@@ -1656,7 +1656,7 @@ export default function CoralReefJomtienPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <a
-                href={`https://wa.me/{{WHATSAPP_NUMBER}}?text=${encodeURIComponent("Hi! I'm interested in Copacabana Coral Reef. Please send me the latest floor plans, pricing, and payment terms.")}`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'm interested in Copacabana Coral Reef. Please send me the latest floor plans, pricing, and payment terms.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
