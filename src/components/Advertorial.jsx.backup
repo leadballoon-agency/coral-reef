@@ -457,15 +457,7 @@ const Advertorial = () => {
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
-                Every few weeks, we check the website's construction updates. Real photos, not renders. You can see the progress – floors 30 and 40 now have their pool structures in place. The shape of our future is literally taking form.
-              </p>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                We've been back three times to check. Each visit, it's taller. Each visit, more real.
-              </p>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                The Smart Floor Request system has been brilliant – we WhatsApp questions about specific floors and get responses with actual photos from that level. When we asked about noise from floor 40's pool, they sent a video from floor 40 of the completed building showing sound levels. That's the kind of transparency that keeps you calm when you've got £182k riding on it.
+                Every few weeks, we check the website's construction updates. Real photos, not renders. You can see the progress – floor 51's cantilever pool structure is taking shape. The shape of our future is literally forming.
               </p>
 
               <div className="my-8 rounded-xl overflow-hidden border border-white/10">
@@ -641,18 +633,13 @@ const Advertorial = () => {
 
             <div className="text-center text-sm text-white/50">
               <p className="mb-2">
-                <em>Brian & Jane Thompson, 58 and 56, bought Type 15.1 on Floor 40 at Coral Reef Jomtien in March 2025.
-                The building is currently 38% complete with expected completion Q4 2027. This is their story, not investment advice. Do your own research. But definitely do something.</em>
+                <em>Brian & Jane Thompson, 58 and 56, purchased Type 15.1 on Floor 40 at Coral Reef Jomtien in March 2025.
+                The building is currently 38% complete with expected completion Q4 2027.</em>
               </p>
-
-              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 text-left">
-                <p className="font-bold text-white mb-2">P.S. – That boiler in Birmingham?</p>
-                <p className="text-white/70 text-sm">
-                  Still broken. The landlords who'll rent our house can deal with it. In 24 months, our biggest problem will be whether to swim at the Beach View Pool, Sky Cantilever Pool, or Rooftop Infinity Pool. These are the kinds of problems worth having.
-                </p>
-              </div>
-
-              <p className="mt-6 text-xs">
+              <p className="text-xs">
+                This is their story, not investment advice. Do your own research. But definitely do something.
+              </p>
+              <p className="mt-4 text-xs">
                 © 2025 Coral Reef Jomtien Marketing. All rights reserved.
               </p>
             </div>
