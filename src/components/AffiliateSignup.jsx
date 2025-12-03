@@ -236,10 +236,64 @@ Source: Affiliate Signup Page
     <>
       <Helmet>
         <title>Become a Partner | Jomtien Property Affiliate Programme</title>
-        <meta name="description" content="Partner with Jomtien Property and earn commissions on Thailand's most exciting beachfront development. Join our affiliate programme today." />
-        <meta property="og:title" content="Partner With Jomtien Property" />
-        <meta property="og:description" content="Earn commissions promoting luxury Thai beachfront property. Join our affiliate programme." />
+        <meta name="description" content="Partner with Jomtien Property and earn commissions on Thailand's most exciting beachfront development. Share your link, we do the heavy lifting with our interactive property platform." />
+        <link rel="canonical" href="https://jomtienproperty.com/affiliate" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Partner With Jomtien Property | Earn Commissions on Thai Beachfront Property" />
+        <meta property="og:description" content="Join our affiliate programme and earn commissions promoting Thailand's most exciting beachfront development. We provide the sales tool - you just share your link." />
         <meta property="og:url" content="https://jomtienproperty.com/affiliate" />
+        <meta property="og:image" content="https://jomtienproperty.com/hero-optimized.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Jomtien Property" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Partner With Jomtien Property | Affiliate Programme" />
+        <meta name="twitter:description" content="Earn commissions promoting luxury Thai beachfront property. Interactive sales tool included - just share your link." />
+        <meta name="twitter:image" content="https://jomtienproperty.com/hero-optimized.jpg" />
+
+        {/* Schema.org JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Jomtien Property Affiliate Programme",
+            "description": "Partner with Jomtien Property and earn commissions on Thailand's most exciting beachfront development.",
+            "url": "https://jomtienproperty.com/affiliate",
+            "mainEntity": {
+              "@type": "Service",
+              "name": "Jomtien Property Affiliate Programme",
+              "description": "Earn commissions by referring qualified buyers to Copacabana Coral Reef Jomtien, a luxury beachfront development in Thailand.",
+              "provider": {
+                "@type": "Organization",
+                "name": "Jomtien Property",
+                "url": "https://jomtienproperty.com"
+              },
+              "areaServed": "Worldwide",
+              "serviceType": "Affiliate Marketing Programme"
+            },
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://jomtienproperty.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Affiliate Programme",
+                  "item": "https://jomtienproperty.com/affiliate"
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
