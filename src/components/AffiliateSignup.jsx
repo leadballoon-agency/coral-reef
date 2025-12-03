@@ -247,7 +247,7 @@ Source: Affiliate Signup Page
         <meta property="og:image" content="https://jomtienproperty.com/hero-optimized.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="Jomtien Property" />
+        <meta property="og:site_name" content="Properties in Thailand" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -269,7 +269,7 @@ Source: Affiliate Signup Page
               "description": "Earn commissions by referring qualified buyers to Copacabana Coral Reef Jomtien, a luxury beachfront development in Thailand.",
               "provider": {
                 "@type": "Organization",
-                "name": "Jomtien Property",
+                "name": "Properties in Thailand",
                 "url": "https://jomtienproperty.com"
               },
               "areaServed": "Worldwide",
@@ -304,7 +304,10 @@ Source: Affiliate Signup Page
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm">Back to Property</span>
             </a>
-            <div className="text-xs text-white/50">Partner Programme</div>
+            <div className="text-right">
+              <div className="text-xs text-white/50">Partner Programme</div>
+              <div className="text-[10px] text-emerald-400/60">A Properties in Thailand Partner</div>
+            </div>
           </div>
         </div>
 
@@ -812,7 +815,7 @@ Source: Affiliate Signup Page
         {/* Footer */}
         <footer className="py-8 px-4 border-t border-white/10">
           <div className="max-w-6xl mx-auto text-center text-sm text-white/40">
-            <p>&copy; {new Date().getFullYear()} Jomtien Property. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Properties in Thailand. All rights reserved.</p>
           </div>
         </footer>
       </div>

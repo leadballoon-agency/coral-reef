@@ -1718,7 +1718,6 @@ export default function CoralReefJomtienPage() {
             <div className="flex flex-wrap items-center gap-4 mt-4 md:mt-0">
               <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="/terms-conditions" className="hover:text-white transition-colors">Terms & Conditions</a>
-              <a href="https://copacabanagroup.com/en/contact-us/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Developer Contact</a>
               <a href="/affiliate" className="hover:text-emerald-400 transition-colors">Become an Affiliate</a>
             </div>
           </div>
