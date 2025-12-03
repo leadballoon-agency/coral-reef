@@ -483,25 +483,114 @@ Source: Affiliate Signup Page
           <div className="max-w-2xl mx-auto">
             {isSubmitted ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-white/5 backdrop-blur border border-emerald-500/30 rounded-2xl p-8 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
-                </div>
-                <h2 className="text-2xl font-bold mb-4">Application Received!</h2>
-                <p className="text-white/70 mb-6">
-                  Thank you for your interest in partnering with Jomtien Property.
-                  We'll review your application and be in touch within 24-48 hours.
-                </p>
-                <a
-                  href="/"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition"
+                {/* Animated Success Icon */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
+                  className="relative mx-auto mb-8"
                 >
-                  <ArrowLeft className="w-4 h-4" />
-                  Explore the Property
-                </a>
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/30">
+                    <CheckCircle2 className="w-12 h-12 text-white" />
+                  </div>
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1.5, opacity: 0 }}
+                    transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
+                    className="absolute inset-0 rounded-full bg-emerald-500/30"
+                  />
+                </motion.div>
+
+                {/* Thank You Message */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                    You're In, {formData.name.split(' ')[0]}! 🎉
+                  </h2>
+                  <p className="text-xl text-white/70 mb-8 max-w-lg mx-auto">
+                    Your application has been received. We're excited to potentially have you as a partner.
+                  </p>
+                </motion.div>
+
+                {/* What Happens Next */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 mb-8"
+                >
+                  <h3 className="text-lg font-semibold mb-6 text-emerald-400">What Happens Next?</h3>
+                  <div className="grid gap-4 text-left">
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-sm">1</div>
+                      <div>
+                        <h4 className="font-medium mb-1">Application Review</h4>
+                        <p className="text-sm text-white/60">Our team will review your application within 24-48 hours</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-sm">2</div>
+                      <div>
+                        <h4 className="font-medium mb-1">Personal Welcome Call</h4>
+                        <p className="text-sm text-white/60">If approved, we'll schedule a quick call to discuss the programme and answer questions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-sm">3</div>
+                      <div>
+                        <h4 className="font-medium mb-1">Get Your Affiliate Link</h4>
+                        <p className="text-sm text-white/60">You'll receive your unique tracking link and marketing materials</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-sm">4</div>
+                      <div>
+                        <h4 className="font-medium mb-1">Start Earning</h4>
+                        <p className="text-sm text-white/60">Share your link and earn commissions on every successful referral</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                >
+                  <a
+                    href="/"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 rounded-xl font-medium transition"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Explore The Property
+                  </a>
+                  <a
+                    href="/birmingham-to-beachfront"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition"
+                  >
+                    Read Our Story
+                    <ArrowLeft className="w-4 h-4 rotate-180" />
+                  </a>
+                </motion.div>
+
+                {/* Contact Info */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                  className="text-sm text-white/50 mt-8"
+                >
+                  Questions? Email us at <a href="mailto:partners@jomtienproperty.com" className="text-emerald-400 hover:underline">partners@jomtienproperty.com</a>
+                </motion.p>
               </motion.div>
             ) : (
               <motion.div
