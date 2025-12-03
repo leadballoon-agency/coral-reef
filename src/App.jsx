@@ -432,7 +432,7 @@ export default function CoralReefJomtienPage() {
               <a href="#location" className="hover:text-white">Location</a>
               <a href="#gallery" className="hover:text-white">Gallery</a>
               <a href="#faq" className="hover:text-white">FAQ</a>
-              <a href="#enquire" className="hover:text-white font-semibold">Enquire</a>
+              <a href="#contact" className="hover:text-white font-semibold">Enquire</a>
               <a href="/affiliate" className="hover:text-emerald-400 text-emerald-400/70">Partners</a>
             </nav>
           </div>
