@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App.jsx'
 import Advertorial from './components/Advertorial.jsx'
+import AffiliateSignup from './components/AffiliateSignup.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/birmingham-to-beachfront" element={<Advertorial />} />
+          <Route path="/affiliate" element={<AffiliateSignup />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

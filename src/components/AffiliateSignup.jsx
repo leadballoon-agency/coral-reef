@@ -1,0 +1,526 @@
+import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Users,
+  TrendingUp,
+  Building2,
+  Handshake,
+  Send,
+  Globe,
+  Mail,
+  Phone,
+  User,
+  MessageSquare,
+  Loader2
+} from 'lucide-react';
+
+// GHL Webhook URL
+const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/hdJJWL7761qzeqA9gab6/webhook-trigger/afb77eec-931e-4785-a22c-84ecfa94d79b';
+
+// Facebook Pixel helper
+const fbq = (...args) => {
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq(...args);
+  }
+};
+
+const promotionOptions = [
+  { id: 'social', label: 'Social Media' },
+  { id: 'email', label: 'Email List' },
+  { id: 'youtube', label: 'YouTube/Video' },
+  { id: 'blog', label: 'Blog/Website' },
+  { id: 'forums', label: 'Property Forums' },
+  { id: 'paid', label: 'Paid Advertising' },
+  { id: 'network', label: 'Personal Network' },
+  { id: 'other', label: 'Other' }
+];
+
+const audienceOptions = [
+  { value: 'under-1k', label: 'Under 1,000' },
+  { value: '1k-10k', label: '1,000 - 10,000' },
+  { value: '10k-50k', label: '10,000 - 50,000' },
+  { value: '50k-plus', label: '50,000+' }
+];
+
+const benefits = [
+  {
+    icon: Building2,
+    title: 'Premium Property',
+    description: 'Luxury beachfront development that sells itself - stunning views, world-class amenities, prime location.'
+  },
+  {
+    icon: TrendingUp,
+    title: 'Attractive Commissions',
+    description: 'Competitive commission structure on property sales. High-value transactions mean significant earnings.'
+  },
+  {
+    icon: Users,
+    title: 'Marketing Support',
+    description: 'Access to professional marketing materials, property images, floor plans, and sales collateral.'
+  },
+  {
+    icon: Handshake,
+    title: 'Dedicated Partner Team',
+    description: 'Direct line to our sales team. We handle viewings, negotiations, and paperwork.'
+  }
+];
+
+const AffiliateSignup = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    websiteSocial: '',
+    promotionMethods: [],
+    audienceSize: '',
+    about: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    fbq('track', 'ViewContent', {
+      content_name: 'Affiliate Signup Page',
+      content_category: 'Affiliate'
+    });
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (optionId) => {
+    setFormData(prev => ({
+      ...prev,
+      promotionMethods: prev.promotionMethods.includes(optionId)
+        ? prev.promotionMethods.filter(id => id !== optionId)
+        : [...prev.promotionMethods, optionId]
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    // Validation
+    if (!formData.name || !formData.email || !formData.phone) {
+      setError('Please fill in all required fields.');
+      return;
+    }
+
+    if (!formData.email.includes('@')) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Get readable values
+    const promotionMethodLabels = formData.promotionMethods.map(id =>
+      promotionOptions.find(opt => opt.id === id)?.label
+    ).filter(Boolean);
+    const audienceSizeLabel = audienceOptions.find(opt => opt.value === formData.audienceSize)?.label || 'Not specified';
+
+    // Build formatted notes for GHL
+    const notes = `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AFFILIATE APPLICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 PROMOTION CHANNELS
+${promotionMethodLabels.length > 0 ? promotionMethodLabels.map(m => `   • ${m}`).join('\n') : '   • Not specified'}
+
+👥 AUDIENCE SIZE
+   ${audienceSizeLabel}
+
+🌐 WEBSITE / SOCIAL
+${formData.websiteSocial ? formData.websiteSocial.split('\n').map(link => `   • ${link.trim()}`).filter(l => l !== '   •').join('\n') : '   • Not provided'}
+
+💬 ABOUT THEMSELVES
+${formData.about ? `   ${formData.about}` : '   Not provided'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Submitted: ${new Date().toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })}
+Source: Affiliate Signup Page
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`.trim();
+
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      website_social: formData.websiteSocial,
+      promotion_methods: promotionMethodLabels,
+      audience_size: audienceSizeLabel,
+      about: formData.about,
+      notes: notes,
+      source: 'affiliate_signup_page',
+      submitted_at: new Date().toISOString()
+    };
+
+    try {
+      // Send to GHL webhook
+      if (WEBHOOK_URL !== 'WEBHOOK_URL_PLACEHOLDER') {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+          mode: 'no-cors' // GHL webhooks may not return CORS headers
+        });
+      }
+
+      // Track conversion
+      fbq('track', 'Lead', {
+        content_name: 'affiliate_application',
+        value: 0,
+        currency: 'GBP'
+      });
+
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error('Submission error:', err);
+      setError('Something went wrong. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>Become a Partner | Jomtien Property Affiliate Programme</title>
+        <meta name="description" content="Partner with Jomtien Property and earn commissions on Thailand's most exciting beachfront development. Join our affiliate programme today." />
+        <meta property="og:title" content="Partner With Jomtien Property" />
+        <meta property="og:description" content="Earn commissions promoting luxury Thai beachfront property. Join our affiliate programme." />
+        <meta property="og:url" content="https://jomtienproperty.com/affiliate" />
+      </Helmet>
+
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+        {/* Header */}
+        <div className="border-b border-white/10 bg-white/5 backdrop-blur sticky top-0 z-50">
+          <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" className="flex items-center gap-2 text-white/70 hover:text-white transition">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="text-sm">Back to Property</span>
+            </a>
+            <div className="text-xs text-white/50">Partner Programme</div>
+          </div>
+        </div>
+
+        {/* Hero Section */}
+        <section className="py-16 md:py-24 px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-sm font-medium mb-6">
+                Affiliate Programme
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                Partner With
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">
+                  Jomtien Property
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto mb-8">
+                Earn attractive commissions promoting Thailand's most exciting beachfront development.
+                Premium property, professional support, proven demand.
+              </p>
+            </motion.div>
+
+            {/* Key Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mt-12"
+            >
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-emerald-400">59</div>
+                <div className="text-sm text-white/60">Floors</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-emerald-400">฿3M+</div>
+                <div className="text-sm text-white/60">Starting Price</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-emerald-400">54%</div>
+                <div className="text-sm text-white/60">Construction</div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-16 px-4 border-t border-white/10">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Why Partner With Us?</h2>
+              <p className="text-white/60 max-w-2xl mx-auto">
+                Join a select group of partners promoting premium Thai property to qualified buyers.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={benefit.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-4">
+                    <benefit.icon className="w-6 h-6 text-emerald-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-white/60">{benefit.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Application Form Section */}
+        <section className="py-16 px-4 border-t border-white/10">
+          <div className="max-w-2xl mx-auto">
+            {isSubmitted ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-white/5 backdrop-blur border border-emerald-500/30 rounded-2xl p-8 text-center"
+              >
+                <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
+                </div>
+                <h2 className="text-2xl font-bold mb-4">Application Received!</h2>
+                <p className="text-white/70 mb-6">
+                  Thank you for your interest in partnering with Jomtien Property.
+                  We'll review your application and be in touch within 24-48 hours.
+                </p>
+                <a
+                  href="/"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Explore the Property
+                </a>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold mb-4">Apply to Become a Partner</h2>
+                  <p className="text-white/60">
+                    Tell us about yourself and how you'd promote Copacabana Coral Reef Jomtien.
+                  </p>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name */}
+                  <div>
+                    <label className="block text-sm font-medium text-white/80 mb-2">
+                      <span className="flex items-center gap-2">
+                        <User className="w-4 h-4" />
+                        Full Name <span className="text-emerald-400">*</span>
+                      </span>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition"
+                      placeholder="John Smith"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-sm font-medium text-white/80 mb-2">
+                      <span className="flex items-center gap-2">
+                        <Mail className="w-4 h-4" />
+                        Email Address <span className="text-emerald-400">*</span>
+                      </span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label className="block text-sm font-medium text-white/80 mb-2">
+                      <span className="flex items-center gap-2">
+                        <Phone className="w-4 h-4" />
+                        Phone Number <span className="text-emerald-400">*</span>
+                      </span>
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition"
+                      placeholder="+44 7700 900123"
+                    />
+                  </div>
+
+                  {/* Website/Social */}
+                  <div>
+                    <label className="block text-sm font-medium text-white/80 mb-2">
+                      <span className="flex items-center gap-2">
+                        <Globe className="w-4 h-4" />
+                        Website or Social Media Links
+                      </span>
+                    </label>
+                    <textarea
+                      name="websiteSocial"
+                      value={formData.websiteSocial}
+                      onChange={handleInputChange}
+                      rows={3}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition resize-none"
+                      placeholder="instagram.com/yourhandle&#10;linkedin.com/in/yourprofile&#10;yourwebsite.com"
+                    />
+                  </div>
+
+                  {/* Promotion Methods */}
+                  <div>
+                    <label className="block text-sm font-medium text-white/80 mb-3">
+                      How will you promote?
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {promotionOptions.map(option => (
+                        <label
+                          key={option.id}
+                          className={`flex items-center gap-3 px-4 py-3 rounded-xl border cursor-pointer transition ${
+                            formData.promotionMethods.includes(option.id)
+                              ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300'
+                              : 'bg-white/5 border-white/20 hover:bg-white/10'
+                          }`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={formData.promotionMethods.includes(option.id)}
+                            onChange={() => handleCheckboxChange(option.id)}
+                            className="sr-only"
+                          />
+                          <div className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
+                            formData.promotionMethods.includes(option.id)
+                              ? 'border-emerald-400 bg-emerald-400'
+                              : 'border-white/40'
+                          }`}>
+                            {formData.promotionMethods.includes(option.id) && (
+                              <svg className="w-3 h-3 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                            )}
+                          </div>
+                          <span className="text-sm">{option.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Audience Size */}
+                  <div>
+                    <label className="block text-sm font-medium text-white/80 mb-2">
+                      Estimated Audience Reach
+                    </label>
+                    <select
+                      name="audienceSize"
+                      value={formData.audienceSize}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition appearance-none"
+                    >
+                      <option value="" className="bg-slate-800">Select an option</option>
+                      {audienceOptions.map(option => (
+                        <option key={option.value} value={option.value} className="bg-slate-800">
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* About */}
+                  <div>
+                    <label className="block text-sm font-medium text-white/80 mb-2">
+                      <span className="flex items-center gap-2">
+                        <MessageSquare className="w-4 h-4" />
+                        Tell us about yourself
+                      </span>
+                    </label>
+                    <textarea
+                      name="about"
+                      value={formData.about}
+                      onChange={handleInputChange}
+                      rows={4}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition resize-none"
+                      placeholder="Share your experience, audience demographics, or why you're interested in promoting Thai property..."
+                    />
+                  </div>
+
+                  {/* Error Message */}
+                  {error && (
+                    <div className="px-4 py-3 bg-red-500/20 border border-red-500/30 rounded-xl text-red-300 text-sm">
+                      {error}
+                    </div>
+                  )}
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-4 px-6 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl font-semibold text-lg flex items-center justify-center gap-2 transition"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Submit Application
+                      </>
+                    )}
+                  </button>
+
+                  <p className="text-xs text-white/40 text-center">
+                    We'll review your application and respond within 24-48 hours.
+                  </p>
+                </form>
+              </motion.div>
+            )}
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-8 px-4 border-t border-white/10">
+          <div className="max-w-6xl mx-auto text-center text-sm text-white/40">
+            <p>&copy; {new Date().getFullYear()} Jomtien Property. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    </>
+  );
+};
+
+export default AffiliateSignup;
