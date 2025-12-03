@@ -304,10 +304,7 @@ Source: Affiliate Signup Page
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm">Back to Property</span>
             </a>
-            <div className="text-right">
-              <div className="text-xs text-white/50">Partner Programme</div>
-              <div className="text-[10px] text-emerald-400/60">A Properties in Thailand Partner</div>
-            </div>
+            <div className="text-xs text-white/50">Partner Programme</div>
           </div>
         </div>
 
@@ -319,6 +316,12 @@ Source: Affiliate Signup Page
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              {/* Properties in Thailand Branding */}
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <img src="/logo.png" alt="Properties in Thailand" className="w-10 h-10 rounded-lg" />
+                <span className="text-lg font-semibold text-white/90">Properties in Thailand</span>
+              </div>
+
               <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-sm font-medium mb-6">
                 Affiliate Programme
               </div>
