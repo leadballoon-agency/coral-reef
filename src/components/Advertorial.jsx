@@ -88,7 +88,7 @@ const Advertorial = () => {
               From Birmingham to Beachfront: Why We Traded Grey Skies for Jomtien Sunsets
             </h1>
             <p className="text-xl text-white/70 italic mb-6">
-              It's 7am on a Tuesday in October 2025. I'm standing at the Coral Reef Jomtien construction site, watching the sunrise paint the Gulf of Thailand gold while concrete trucks arrive for the day's pour on floor 21. In exactly 24 months, I'll be swimming in the 30th floor Beach View Pool at this same hour. My wife Jane and I just bought our retirement dream at 38% complete. Here's the honest story of how two skeptical Brits decided to bet on paradise – before it's even built.
+              It's 7am on a Tuesday in October 2025. I'm standing at the Coral Reef Jomtien construction site, watching the sunrise paint the Gulf of Thailand gold while concrete trucks arrive for the day's pour on floor 21. In exactly 24 months, I'll be swimming in the 51st floor Beach View Pool at this same hour. My wife Jane and I just bought our retirement dream at 54% complete. Here's the honest story of how two skeptical Brits decided to bet on paradise – before it's even built.
             </p>
             <div className="flex items-center justify-center gap-4 text-sm text-white/50">
               <span>By Brian & Jane Thompson</span>
@@ -158,7 +158,7 @@ const Advertorial = () => {
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
-                I still remember that first morning walk along Jomtien Beach Road. The sun already warm at 7am (imagine that in January!). Thai ladies doing their morning exercises on the beach. The smell of proper coffee from the beachfront cafés – not a Costa in sight, but somehow better.
+                I still remember that first morning walk along Jomtien Beach Road. The sun is already warm at 7am (imagine that in January!). Thai ladies doing their morning exercises on the beach. The smell of proper coffee from the beachfront cafés – not a Costa in sight, but somehow better.
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
@@ -166,11 +166,11 @@ const Advertorial = () => {
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
-                We met Derek at a beach bar. 72, from Manchester, been living in Jomtien five years. "Best decision I ever made," he said, and you could see it in his face – proper color in his cheeks, none of that grey pallor we all carry through British winters.
+                We met Derek at a beach bar. 72, from Manchester, he has been living in Jomtien for five years. "Best decision I ever made," he said, and you could see it in his face – proper color in his cheeks, none of that grey pallor we all carry through British winters.
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
-                "What's it really like though?" Jane asked. "The forums all say never buy property here."
+                "What's it really like though?" Jane asked. "Some forums say never buy property here."
               </p>
 
               {/* Pull Quote 2 */}
@@ -184,7 +184,7 @@ const Advertorial = () => {
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
-                "See that tower going up?" Derek pointed to a construction site with a sign reading "38% COMPLETE." "Copacabana's new project. If I was buying now, that's where I'd look. Their first building's proper quality – none of that Thai corner-cutting nonsense."
+                "See that tower going up?" Derek pointed to a construction site with a sign reading "38% COMPLETE." "Copacabana's new project. If I was buying now, that's where I'd look. Their first building's proper quality – none of that corner-cutting nonsense."
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
@@ -197,6 +197,214 @@ const Advertorial = () => {
 
               <p className="text-white/80 leading-relaxed">
                 Jane squeezed my hand. "What if...?"
+              </p>
+            </section>
+
+            {/* Finding Coral Reef Jomtien */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">Finding Coral Reef Jomtien: The Website That Actually Helped</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Back in Birmingham that February, we couldn't stop thinking about it.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Jane had printed out everything – forum discussions, property guides. Our dining table looked like a detective's incident room. Red pen circles around warnings, green highlights on positives ("6-8% rental yields typical in Jomtien").
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                "Look at this," Jane said one evening, laptop open to jomtienproperty.com. "They have this personality quiz thing. Helps you find the right unit."
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                I was skeptical. Sounded like marketing fluff.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                But we tried it anyway.
+              </p>
+
+              <div className="my-6 p-6 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="font-bold mb-3">The Quiz Questions:</h4>
+                <ul className="space-y-2 text-white/70">
+                  <li><strong>Question 1:</strong> What's your main goal? We selected "Mix: Personal use + rent when away"</li>
+                  <li><strong>Question 2:</strong> What's your priority? After some debate: "Best sea view possible"</li>
+                  <li><strong>Question 3:</strong> Space needs? "Need space (family, guests, or office)" – the grandkids would visit, we hoped.</li>
+                  <li><strong>Question 4:</strong> Budget? "Mid-range (5-10M THB)"</li>
+                </ul>
+              </div>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                The quiz recommended three units. But it was Type 15.1 that made Jane gasp.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                "Look at that floor plan, Brian. Two proper bedrooms. 67.6 square meters. And it goes up to floor 54..."
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                The images were stunning. Actual floor plans, not just artist impressions. You could click through every single floor from 5 to 54 (except 13 – Thai superstition).
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                But it was the Smart Floor Request feature that really impressed me. Each unit had specific floor recommendations:
+              </p>
+
+              <div className="my-6 p-6 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="font-bold mb-3">Smart Floor Recommendations:</h4>
+                <ul className="space-y-2 text-white/70">
+                  <li>🏊 <strong>Floor 6:</strong> "The Coral Pool - with Jacuzzi, Onsen, Sauna and Steam room"</li>
+                  <li>🌅 <strong>Floor 51:</strong> "Sky Cantilever Pool - with stunning views and Pool Bar"</li>
+                  <li>🔝 <strong>Floor 50+:</strong> "Premium Upper Floors - Best views and maximum privacy"</li>
+                </ul>
+              </div>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Click any floor and it generates a WhatsApp message with all the details. Clever that – showed they'd thought about what buyers actually need to know.
+              </p>
+
+              <p className="text-white/80 leading-relaxed">
+                "They're not hiding anything," I noted. "Look, you can see floor plans for every single level."
+              </p>
+            </section>
+
+            {/* The Investigation Phase */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">The Investigation Phase: Forums, Fears, and Facts</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                We weren't going to be those naïve Brits who get scammed. We'd read about the Emerald Palace disaster. First stop: The expat forums. Mixed bag, as expected.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                "Never buy off-plan in Thailand!" screamed one thread. "Thai condos depreciate," warned another. "Rental yields are fantasy," claimed a third.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                But then I found a different thread: "Copacabana Beach Jomtien – Two Years Later."
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                A British owner, username "PatongPete," had written a detailed review. The good: solid construction, facilities as promised, decent rental income. The bad: some maintenance issues, rental income took six months to stabilize. The verdict: "Would I buy again? Yes, but with realistic expectations."
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                That honesty mattered more than any glossy brochure.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                I emailed the website directly. I expected a sleazy salesman. Instead, got Rob, who started with:
+              </p>
+
+              {/* Pull Quote 3 */}
+              <blockquote className="my-8 pl-6 border-l-4 border-teal-400 italic text-2xl text-white/90">
+                "Right, let me be straight with you. The building won't be ready until late 2027 or early 2028 even. If you need instant returns, this isn't for you. This isn't a get-rich-quick investment. You're buying this for lifestyle and a modest income if you want to rent it out when you're not there."
+                <footer className="text-base text-white/60 not-italic mt-2">— Rob, Sales Consultant (refreshingly honest)</footer>
+              </blockquote>
+            </section>
+
+            {/* The Numbers That Actually Made Sense */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">The Numbers That Actually Made Sense</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Here's what we had: £250k in savings, paid-off house in Birmingham, and dreams bigger than our bank balance suggested.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Rob sent over a proper spreadsheet – not marketing fluff, but actual numbers.
+              </p>
+
+              <div className="my-6 p-6 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="font-bold mb-3">Type 15.1 - What We Were Looking At:</h4>
+                <ul className="space-y-2 text-white/70">
+                  <li>• <strong>Price:</strong> 7.3M THB (£182,500 at 40 THB to pound)</li>
+                  <li>• <strong>Size:</strong> 67.6 sqm (728 sq ft)</li>
+                  <li>• <strong>Bedrooms:</strong> 2</li>
+                  <li>• <strong>Available floors:</strong> Multiple between 7-54</li>
+                  <li>• <strong>View:</strong> Direct Sea View</li>
+                </ul>
+              </div>
+
+              <div className="my-6 p-6 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="font-bold mb-3">Payment Structure (This Mattered):</h4>
+                <ul className="space-y-2 text-white/70">
+                  <li>• <strong>Reservation:</strong> 50,000 THB (£1,250)</li>
+                  <li>• <strong>Contract:</strong> 30% within 30 days (£54,750)</li>
+                  <li>• <strong>Construction:</strong> 40% over 24 months (£73,000)</li>
+                  <li>• <strong>Completion:</strong> 30% at handover Q4 2027 (£54,750)</li>
+                </ul>
+              </div>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                "You're not investing everything upfront," Rob explained. "And the staged payments mean you're protected – if something goes wrong, you're not fully exposed. But if you are comfortable paying up front, we can obtain a good discount for you."
+              </p>
+
+              <div className="my-6 p-6 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="font-bold mb-3">The Investment Angle:</h4>
+                <ul className="space-y-2 text-white/70">
+                  <li>• <strong>Estimated rental:</strong> 40,000-48,000 THB/month</li>
+                  <li>• <strong>Realistic occupancy:</strong> 60-70%</li>
+                  <li>• <strong>Management fees:</strong> 20% of rental</li>
+                  <li>• <strong>NET yield:</strong> 5.5-6.5%</li>
+                </ul>
+              </div>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                "Not spectacular," Rob admitted. "But combine that with personal use value and Thai living costs, the real return is lifestyle."
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Jane had been calculating. "So we could stay three months a year, rent it for nine months, and it basically pays for itself?"
+              </p>
+
+              <p className="text-white/80 leading-relaxed">
+                "That's the idea. Plus, Jomtien's growing. Eastern Economic Corridor, new infrastructure. No promises, but it's better positioned than most Thai locations."
+              </p>
+            </section>
+
+            {/* The Site Visit */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">The Site Visit That Changed Everything</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                March 2025. We flew back to see for ourselves.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                The construction site was exactly as shown online – 38.94% complete. Not a marketing approximation, but posted on an official board with signatures from engineers.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Rob and his partner Anchalee met us at the sales office. First stop: Copacabana Beach Jomtien, their completed building from 2019.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Real residents. Real pools being used. Real gym with actual people working out. Not a ghost town like some horror stories suggested.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                "Been here two years," an older British woman told us by the pool. "A few teething problems at first, but they sorted them. Can't complain."
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Then to the Coral Reef site itself. Hard hats on, up the construction lift to floor 15.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                The view – even at that height – was breathtaking. The Gulf of Thailand stretched endlessly. Koh Larn island sitting pretty in the distance.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                "Your unit would be there," Rob pointed up. "And the 51st floor is where the Sky Cantilever Pool structure's going in. See that steel framework?"
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                I could see it. Not imagine it – actually see it taking shape.
+              </p>
+
+              <p className="text-white/80 leading-relaxed">
+                Jane was sold. I could tell by how she was already planning her next visit here.
               </p>
             </section>
 
@@ -303,60 +511,6 @@ const Advertorial = () => {
               </div>
             </aside>
 
-            {/* Continue story... */}
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold mb-6">The Numbers That Actually Made Sense</h2>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                Back in Birmingham that February, we couldn't stop thinking about it.
-              </p>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                Jane had printed out everything – forum discussions, property guides. Our dining table looked like a detective's incident room. Red pen circles around warnings ("Thai condos depreciate!"), green highlights on positives ("6-8% rental yields typical in Jomtien").
-              </p>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                I emailed the website directly. Expected a sleazy salesman. Instead, got Michael, who started with:
-              </p>
-
-              {/* Pull Quote 3 */}
-              <blockquote className="my-8 pl-6 border-l-4 border-teal-400 italic text-2xl text-white/90">
-                "This isn't a get-rich-quick investment. Thai property doesn't appreciate like the UK. You're buying this for lifestyle and modest income, not to flip for profit."
-                <footer className="text-base text-white/60 not-italic mt-2">— Michael, Sales Consultant (refreshingly honest)</footer>
-              </blockquote>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                Refreshing.
-              </p>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                Here's what we had: £250k in savings, paid-off house in Birmingham, and dreams bigger than our bank balance suggested.
-              </p>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                Michael sent over a proper spreadsheet – not marketing fluff, but actual numbers.
-              </p>
-
-              <div className="my-6 p-6 rounded-xl bg-white/5 border border-white/10">
-                <h4 className="font-bold mb-3">Type 15.1 - What We Were Looking At:</h4>
-                <ul className="space-y-2 text-white/70">
-                  <li>• Price: 7.3M THB (£182,500 at 40 THB to pound)</li>
-                  <li>• Size: 67.6 sqm (728 sq ft)</li>
-                  <li>• Bedrooms: 2</li>
-                  <li>• Available floors: Multiple between 7-54</li>
-                  <li>• View: Direct Sea View</li>
-                </ul>
-              </div>
-
-              <p className="text-white/80 leading-relaxed mb-4">
-                Jane had been calculating. "So we could stay three months a year, rent it nine months, and it basically pays for itself?"
-              </p>
-
-              <p className="text-white/80 leading-relaxed">
-                "That's the idea. Plus, Jomtien's growing. Eastern Economic Corridor, new infrastructure. No promises, but it's better positioned than most Thai locations."
-              </p>
-            </section>
-
             {/* Making the Commitment */}
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6">Making the Commitment: Signing on the Dotted Line</h2>
@@ -375,12 +529,12 @@ const Advertorial = () => {
 
               {/* Pull Quote 4 */}
               <blockquote className="my-8 pl-6 border-l-4 border-teal-400 italic text-2xl text-white/90">
-                "We've been sensible our whole lives. Where's it gotten us? A cold house and aching joints. Maybe it's time to be a little mad."
+                "Brian, we've been sensible our whole lives. Where's it gotten us? A cold house and aching joints. Maybe it's time to be a little mad."
                 <footer className="text-base text-white/60 not-italic mt-2">— Jane Thompson, 56, making the call</footer>
               </blockquote>
 
               <p className="text-white/80 leading-relaxed mb-4">
-                I called Michael. "We want floor 40. Near the Sky Pool level. Type 15.1."
+                I called Rob. "We want floor 40 with direct sea views. Type 15.1."
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
@@ -465,7 +619,7 @@ const Advertorial = () => {
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
-                The Smart Floor Request system has been brilliant – we WhatsApp questions about specific floors and get responses with actual photos from that level. When we asked about noise from floor 40's pool, they sent a video from floor 40 of the completed building showing sound levels. That's the kind of transparency that keeps you calm when you've got £182k riding on it.
+                The Smart Floor Request system has been brilliant – we WhatsApp questions about specific floors and get responses with actual photos from that level.
               </p>
 
               <div className="my-8 rounded-xl overflow-hidden border border-white/10">
@@ -478,10 +632,57 @@ const Advertorial = () => {
                   The view from our future bedroom. This is what we wake up to in 24 months. Worth the wait?
                 </p>
               </div>
+            </section>
 
-              <p className="text-white/80 leading-relaxed">
-                We've been back three times to check. Each visit, it's taller. Each visit, more real.
+            {/* The Waiting Game */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">The Waiting Game: What We're Doing Until 2027</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Two years to wait. Here's how we're handling it:
               </p>
+
+              <div className="grid md:grid-cols-2 gap-6 my-6">
+                <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="font-bold mb-3 text-sky-300">Practical Preparation:</h4>
+                  <ul className="space-y-2 text-white/70 text-sm">
+                    <li>• Learning Thai on Duolingo (Jane's surprisingly good)</li>
+                    <li>• Understanding the rental market (long-term vs Airbnb grey area)</li>
+                    <li>• Setting aside the staged payments (£3,000/month)</li>
+                  </ul>
+                </div>
+
+                <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="font-bold mb-3 text-sky-300">Mental Preparation:</h4>
+                  <ul className="space-y-2 text-white/70 text-sm">
+                    <li>• Reading everything about Jomtien</li>
+                    <li>• Following Pattaya news for development updates</li>
+                    <li>• Planning our 2028 life (three months there, rent the rest)</li>
+                    <li>• Dealing with friends who think we're crackers</li>
+                  </ul>
+                </div>
+
+                <div className="p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
+                  <h4 className="font-bold mb-3 text-amber-300">The Hard Parts:</h4>
+                  <ul className="space-y-2 text-white/70 text-sm">
+                    <li>• Watching the pound fluctuate against the baht</li>
+                    <li>• Reading negative forum posts at 2am</li>
+                    <li>• Explaining to our kids why we're doing this</li>
+                    <li>• Paying for something we can't use yet</li>
+                  </ul>
+                </div>
+
+                <div className="p-6 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                  <h4 className="font-bold mb-3 text-emerald-300">The Good Parts:</h4>
+                  <ul className="space-y-2 text-white/70 text-sm">
+                    <li>• Having something exciting to look forward to</li>
+                    <li>• Planning our future instead of accepting decline</li>
+                    <li>• Knowing that in 24 months, we'll have options</li>
+                    <li>• Feeling like we're writing our own story</li>
+                    <li>• Prices have increased since we bought</li>
+                  </ul>
+                </div>
+              </div>
             </section>
 
             {/* The Doubts */}
@@ -493,18 +694,48 @@ const Advertorial = () => {
               </p>
 
               <p className="text-white/80 leading-relaxed mb-4">
-                What if we can't rent it out? The forums are full of empty condos.<br/>
-                What if we can't sell it? Thai property liquidity is notoriously poor.<br/>
+                What if we can't rent it out?<br/>
+                What if we can't sell it?<br/>
                 What if the developer has problems? It's happened before.<br/>
                 What if we hate living there? Three weeks' holiday isn't living somewhere.
               </p>
 
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-white/80 leading-relaxed mb-4">
                 But then I remember the alternative: nothing. Doing nothing. Staying in Birmingham, getting older, colder, greyer. That's not a "what if" – that's a certainty.
               </p>
 
               <p className="text-white/80 leading-relaxed">
-                At least this gamble has upside.
+                At least this gamble has upside. Even if everything goes averagely – building finishes, we get modest rental income, we enjoy our three months a year there – we're ahead of where we'd be in Birmingham.
+              </p>
+            </section>
+
+            {/* Why Coral Reef Specifically */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">Why Coral Reef Specifically?</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                People ask why we didn't buy a resale, something already built.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Simple: the new buildings are better. Better facilities, better design, better locations. The triple pool concept doesn't exist in most older buildings:
+              </p>
+
+              <div className="my-6 p-6 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="font-bold mb-3">The Triple Pool System:</h4>
+                <ul className="space-y-3 text-white/70">
+                  <li>🌊 <strong>Ground Floor Wave Pool</strong> - Wave pool, kids pool and garden with beach club atmosphere</li>
+                  <li>🏊 <strong>6th Floor Coral Pool</strong> - With Jacuzzi, Japanese Onsen, Sauna and Steam room</li>
+                  <li>🌅 <strong>51st Floor Sky Cantilever Pool</strong> - Rooftop infinity pool with Pool Bar</li>
+                </ul>
+              </div>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                The Smart Floor Request system showed they understood buyers' needs. Want to see exactly what floor 44 looks like? Click, WhatsApp, get photos. That level of detail gave us confidence.
+              </p>
+
+              <p className="text-white/80 leading-relaxed">
+                And honestly? Being part of something from the beginning feels special. We're not inheriting someone else's dream – we're building our own.
               </p>
             </section>
 
@@ -528,48 +759,150 @@ const Advertorial = () => {
                 But it's life. Real, warm, possible life. Not the suspended animation of British retirement.
               </p>
 
+              <p className="text-white/80 leading-relaxed mb-4">
+                Our Birmingham friends think we're mad. "Buying off-plan in Thailand? You've lost it."
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Maybe. But those same friends are planning their retirement around TV schedules and grocery discounts.
+              </p>
+
+              <p className="text-white/80 leading-relaxed">
+                We're planning ours around pool schedules and sunset views.
+              </p>
+
               {/* Pull Quote 5 */}
               <blockquote className="my-8 pl-6 border-l-4 border-teal-400 italic text-2xl text-white/90">
-                "Our Birmingham friends are planning retirement around TV schedules and grocery discounts. We're planning ours around pool schedules and sunset views. Who's really lost it?"
+                "Who's really lost it?"
                 <footer className="text-base text-white/60 not-italic mt-2">— Brian Thompson, 58, seven months in</footer>
               </blockquote>
             </section>
 
+            {/* Your Move Section */}
+            <section className="mb-12 p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/20">
+              <h2 className="text-3xl font-bold mb-6">Your Move: Should You Consider This?</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                I'm not saying you should buy at Coral Reef. That's your decision.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                But if you're sitting in the UK, reading this on another grey day, wondering if this is all there is... maybe it's not.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Here's what I'd tell you:
+              </p>
+
+              <ul className="space-y-3 text-white/80 mb-6">
+                <li>✓ <strong>The building is real.</strong> 38% complete, visible on Google Earth, registered with all the proper authorities.</li>
+                <li>✓ <strong>The developer has a history.</strong> Copacabana Beach Jomtien stands completed. Not their first rodeo.</li>
+                <li>✓ <strong>The money is staged.</strong> You're not handing it all over tomorrow. It's spread over 2.5 years.</li>
+                <li>✓ <strong>The location is prime.</strong> Jomtien Beach, not some random field. The Eastern Economic Corridor is real development, not just promises.</li>
+                <li>✓ <strong>The risk is manageable.</strong> Yes, you might lose money. But you definitely lose life staying in Birmingham forever.</li>
+              </ul>
+            </section>
+
+            {/* The First Step */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">The First Step: Just Look</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Go to jomtienproperty.com. Take the quiz. It's actually useful – not just "what's your budget?" but proper lifestyle questions.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Use the Smart Floor Request feature. Pick a unit, pick a floor, see what happens. The detail level surprised us.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Look at the actual floor plans. All 49 floors (excluding 13). That transparency matters.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Check the construction updates. Real photos, not renders.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Then ask yourself: In October 2027, would I rather be in my current situation or standing on the 40th floor of a Thai beachfront condo, even if it's not perfect?
+              </p>
+
+              <p className="text-white/80 leading-relaxed">
+                For us, the answer was clear.
+              </p>
+            </section>
+
+            {/* 24 Months and Counting */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">24 Months and Counting</h2>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                I'm finishing this from our Jomtien hotel. Jane's on the balcony, binoculars trained on our construction site, counting floors like a kid counting days till Christmas.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                "I can see floor 36 going up!" she shouts.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Four more floors and they'll be pouring our concrete. Our actual, physical future.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Birmingham feels like someone else's life now. The broken boiler, the council tax, the grey existence – that was some other Brian and Jane. The ones who accepted that retirement meant decline.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                These Brian and Jane – the ones betting £182k on a Thai construction site – they believe retirement means renewal.
+              </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                24 months to go. 38% complete. 62% hope. 100% better than doing nothing.
+              </p>
+
+              <p className="text-white/80 leading-relaxed font-semibold">
+                Maybe we're mad. But at least we're mad with a sea view.
+              </p>
+            </section>
+
             {/* Enhanced CTA Section */}
             <section className="mb-12 p-8 rounded-2xl bg-gradient-to-br from-sky-500/20 to-teal-500/20 border border-sky-400/30">
-              <h2 className="text-3xl font-bold mb-6 text-center">Ready to Explore Your Own "What If"?</h2>
+              <h2 className="text-3xl font-bold mb-6 text-center">Ready to Explore Your Own Possibility?</h2>
 
               <p className="text-center text-white/80 mb-8 text-lg">
-                You don't have to buy anything.<br/>
-                You don't even have to give us your email.<br/>
-                Just look. Just explore. Just think.
+                Don't just dream about it. At least look.<br/>
+                What's the worst that happens – you stay in Birmingham?<br/>
+                That's the worst that happens anyway.
               </p>
 
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 <a
                   href="/#quiz"
+                  onClick={() => trackCTAClick('quiz')}
                   className="p-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 transition group"
                 >
                   <h3 className="font-bold mb-2 flex items-center gap-2">
-                    Step 1: Take the Quiz
+                    Find My Perfect Unit - Start the Quiz
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition" />
                   </h3>
-                  <p className="text-sm text-white/70">The same 4-question quiz that recommended Type 15.1 to us. No email required.</p>
+                  <p className="text-sm text-white/70">Take the quiz we took. It actually helps clarify what you want, not just what you can afford.</p>
                 </a>
 
                 <a
                   href="/#residences"
+                  onClick={() => trackCTAClick('floor_plans')}
                   className="p-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 transition group"
                 >
                   <h3 className="font-bold mb-2 flex items-center gap-2">
-                    Step 2: Explore Floor Plans
+                    Smart Floor Request
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition" />
                   </h3>
-                  <p className="text-sm text-white/70">See exactly what each floor looks like. The transparency that convinced us.</p>
+                  <p className="text-sm text-white/70">See exactly what's available on which floors. The detail level will surprise you.</p>
                 </a>
 
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20read%20Brian%20%26%20Jane%27s%20story%20and%20have%20questions...`}
+                  onClick={() => trackWhatsAppClick('cta_section')}
                   className="p-4 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 transition group"
                 >
                   <h3 className="font-bold mb-2 flex items-center gap-2">
@@ -581,10 +914,11 @@ const Advertorial = () => {
 
                 <a
                   href="/"
+                  onClick={() => trackCTAClick('website')}
                   className="p-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 transition group"
                 >
                   <h3 className="font-bold mb-2 flex items-center gap-2">
-                    Step 3: View Live Updates
+                    The Website: jomtienproperty.com
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition" />
                   </h3>
                   <p className="text-sm text-white/70">Real construction photos updated weekly. Floor 35 is up now.</p>
@@ -648,7 +982,7 @@ const Advertorial = () => {
               <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 text-left">
                 <p className="font-bold text-white mb-2">P.S. – That boiler in Birmingham?</p>
                 <p className="text-white/70 text-sm">
-                  Still broken. The landlords who'll rent our house can deal with it. In 24 months, our biggest problem will be whether to swim at the Beach View Pool, Sky Cantilever Pool, or Rooftop Infinity Pool. These are the kinds of problems worth having.
+                  Still broken. The landlords who'll rent our house can deal with it. In 24 months, our biggest problem will be which of the 3 pools to swim in. These are the kinds of problems worth having.
                 </p>
               </div>
 

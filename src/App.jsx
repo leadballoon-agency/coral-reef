@@ -535,9 +535,9 @@ export default function CoralReefJomtienPage() {
         </div>
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           <AmenityCard
-            title="Rooftop Infinity Pool"
-            desc="59th floor 25m floating lap pool with breathtaking horizon views overlooking Jomtien Beach and the Gulf of Thailand."
-            img="/rooftop-infinity-pool.jpg"
+            title="6th Floor Coral Pool"
+            desc="Stunning coral-themed pool deck with Jacuzzi, authentic Japanese Onsen, sauna and steam room for complete relaxation."
+            img="/coral-pool-jacuzzi.jpg"
           />
           <AmenityCard
             title="Sky Pool & Lounge"
