@@ -14,7 +14,14 @@ import {
   Phone,
   User,
   MessageSquare,
-  Loader2
+  Loader2,
+  Layout,
+  Calculator,
+  Map,
+  Images,
+  Layers,
+  MousePointerClick,
+  ExternalLink
 } from 'lucide-react';
 
 // GHL Webhook URL
@@ -65,6 +72,39 @@ const benefits = [
     icon: Handshake,
     title: 'Dedicated Partner Team',
     description: 'Direct line to our sales team. We handle viewings, negotiations, and paperwork.'
+  }
+];
+
+const toolFeatures = [
+  {
+    icon: Layout,
+    title: 'Interactive Unit Browser',
+    description: 'Filter by beds, budget, floor & view. Your leads find their perfect unit in seconds.'
+  },
+  {
+    icon: Layers,
+    title: 'Detailed Floor Plans',
+    description: 'Every unit type with full layouts. Tower floor plans showing exact positions.'
+  },
+  {
+    icon: Calculator,
+    title: 'Investment Calculator',
+    description: 'ROI projections, rental yields, price comparisons. The numbers that close deals.'
+  },
+  {
+    icon: Images,
+    title: '3D Virtual Tours',
+    description: 'Matterport tours for every unit type. Prospects explore from anywhere in the world.'
+  },
+  {
+    icon: Map,
+    title: 'Location & Amenities',
+    description: 'Interactive maps, facility guides, nearby attractions. Everything they need to know.'
+  },
+  {
+    icon: MousePointerClick,
+    title: 'One-Click Enquiries',
+    description: 'WhatsApp integration throughout. When they\'re ready, we take over instantly.'
   }
 ];
 
@@ -286,6 +326,100 @@ Source: Affiliate Signup Page
                   <p className="text-sm text-white/60">{benefit.description}</p>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Your Sales Tool Section */}
+        <section className="py-16 px-4 border-t border-white/10 bg-gradient-to-b from-transparent via-emerald-950/20 to-transparent">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-sm font-medium mb-4">
+                We've Done The Hard Work
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Sales Tool Is Ready</h2>
+              <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                Just share your link. Our interactive property platform does all the heavy lifting —
+                educating, engaging, and converting your audience into qualified leads.
+              </p>
+            </div>
+
+            {/* Tool Preview */}
+            <div className="mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
+                <img
+                  src="/hero-optimized.jpg"
+                  alt="Jomtien Property Platform"
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                  <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-xl font-bold mb-1">jomtienproperty.com</h3>
+                      <p className="text-white/70 text-sm">The complete property showcase your leads will love</p>
+                    </div>
+                    <a
+                      href="/"
+                      target="_blank"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 rounded-xl font-medium transition"
+                    >
+                      Preview The Tool
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Tool Features Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {toolFeatures.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-5 hover:bg-white/10 transition group"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/30 transition">
+                      <feature.icon className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">{feature.title}</h3>
+                      <p className="text-sm text-white/60">{feature.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Simple Process */}
+            <div className="mt-12 bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-center mb-8">How It Works</h3>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4 text-emerald-400 font-bold text-xl">1</div>
+                  <h4 className="font-semibold mb-2">Share Your Link</h4>
+                  <p className="text-sm text-white/60">Post to social media, email your list, or share with your network</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4 text-emerald-400 font-bold text-xl">2</div>
+                  <h4 className="font-semibold mb-2">We Educate & Convert</h4>
+                  <p className="text-sm text-white/60">Our platform showcases the property with all the tools to drive enquiries</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4 text-emerald-400 font-bold text-xl">3</div>
+                  <h4 className="font-semibold mb-2">You Earn Commission</h4>
+                  <p className="text-sm text-white/60">When your referral purchases, you get paid. Simple as that.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
