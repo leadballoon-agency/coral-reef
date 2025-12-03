@@ -339,7 +339,7 @@ Source: Affiliate Signup Page
               className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mt-12"
             >
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-emerald-400">59</div>
+                <div className="text-3xl md:text-4xl font-bold text-emerald-400">55</div>
                 <div className="text-sm text-white/60">Floors</div>
               </div>
               <div className="text-center">
