@@ -466,10 +466,10 @@ export default function CoralReefJomtienPage() {
               <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/20 border border-sky-500/30">
                   <span className="w-2 h-2 bg-sky-400 rounded-full animate-pulse"></span>
-                  <span className="text-sky-200 font-medium">38% Complete</span>
+                  <span className="text-sky-200 font-medium">54% Complete</span>
                 </div>
                 <div className="text-white/60">
-                  <span className="text-white font-semibold">342</span> units already secured
+                  <span className="text-white font-semibold">512</span> units already secured
                 </div>
               </div>
 
@@ -1472,7 +1472,7 @@ export default function CoralReefJomtienPage() {
             <ul className="space-y-2 text-sm text-white/70">
               <li className="flex items-start gap-2">
                 <span className="text-orange-400 mt-1">•</span>
-                <span>Construction delays possible (currently on track, 38% complete)</span>
+                <span>Construction delays possible (currently on track, 54% complete)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-orange-400 mt-1">•</span>
@@ -1610,7 +1610,7 @@ export default function CoralReefJomtienPage() {
         {/* Google Maps Embed - Jomtien 2nd Road Location */}
         <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.567!2d100.89!3d12.893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUzJzM0LjgiTiAxMDDCsDUzJzI0LjAiRQ!5e0!3m2!1sen!2sth!4v1234567890!5m2!1sen!2sth&q=Jomtien+2nd+Road,+Nong+Prue,+Bang+Lamung,+Chonburi"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7755.5!2d100.8874!3d12.8797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUyJzQ2LjkiTiAxMDDCsDUzJzE0LjYiRQ!5e1!3m2!1sen!2sth!4v1699000000000!5m2!1sen!2sth"
             width="100%"
             height="600"
             style={{ border: 0 }}
