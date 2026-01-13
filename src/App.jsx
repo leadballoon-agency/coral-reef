@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Waves, Trees, Building2, BedDouble, Ruler, Calendar, ShieldCheck, LineChart, Phone, MessageCircle, Award, TrendingUp } from "lucide-react";
+import { EmbeddableAgent } from "./components/EmbeddableAgent";
 
 // Configuration
 const WHATSAPP_NUMBER = "447775978555";
@@ -2128,6 +2129,15 @@ export default function CoralReefJomtienPage() {
           </motion.div>
         </motion.div>
       )}
+
+      {/* AI Sales Agent - Floating Chat Widget */}
+      {/* This connects to Property Thailand's AI platform and tracks affiliate referrals */}
+      <EmbeddableAgent
+        developmentSlug="copacabana-jomtien"
+        agentType="sales"
+        accentColor="#0ea5e9"
+        buttonLabel="Chat with AI Agent"
+      />
     </div>
   );
 }
